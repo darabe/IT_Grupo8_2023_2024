@@ -20,4 +20,3 @@ Para construir este proyecto se han usado las siguientes herramientas:
 
 * [Git](https://git-scm.com/)
 * [NetBeans IDE 8.2](https://archive.org/details/jdk-8u111-nb-8_2)
-* 
