@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-may-2024 9:16:55 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Noticia" table="noticia" catalog="noticias" optimistic-lock="version">
+        <id name="idNoticia" type="java.lang.Integer">
+            <column name="id_noticia" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="anuncio" class="modelo.Anuncio" fetch="select">
+            <column name="id_anuncio" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoria" class="modelo.Categoria" fetch="select">
+            <column name="id_categoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" />
+        </many-to-one>
+        <property name="autor" type="string">
+            <column name="autor" />
+        </property>
+        <property name="titulo" type="string">
+            <column name="titulo" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" />
+        </property>
+        <property name="contenido" type="string">
+            <column name="contenido" length="65535" />
+        </property>
+        <property name="fechaCreacion" type="date">
+            <column name="fecha_creacion" length="10" />
+        </property>
+        <set name="etiquetas" table="noticia_etiqueta" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_noticia" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Etiqueta">
+                <column name="id_etiqueta" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="comentarios" table="comentario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_noticia" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Comentario" />
+        </set>
+    </class>
+</hibernate-mapping>
