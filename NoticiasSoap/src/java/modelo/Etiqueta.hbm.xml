@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-may-2024 9:44:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Etiqueta" table="etiqueta" catalog="noticias" optimistic-lock="version">
+        <id name="idEtiqueta" type="java.lang.Integer">
+            <column name="id_etiqueta" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" />
+        </property>
+        <set name="noticias" table="noticia_etiqueta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_etiqueta" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Noticia">
+                <column name="id_noticia" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
