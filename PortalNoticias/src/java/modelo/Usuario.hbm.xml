@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="modelo.Usuario" table="usuario" catalog="noticias" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" />
+        </property>
+        <property name="contrasenya" type="string">
+            <column name="contrasenya" />
+        </property>
+        <property name="rol" type="string">
+            <column name="rol" length="50" />
+        </property>
+        <property name="fechaRegistro" type="date">
+            <column name="fecha_registro" length="10" />
+        </property>
+        <set name="noticias" table="noticia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Noticia" />
+        </set>
+        <set name="comentarios" table="comentario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Comentario" />
+        </set>
+        <set name="valoracions" table="valoracion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Valoracion" />
+        </set>
+    </class>
+</hibernate-mapping>

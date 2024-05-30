@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="noticias" name="soap.Usuario" optimistic-lock="version" table="usuario">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre"/>
+        </property>
+        <property name="correo" type="string">
+            <column name="correo"/>
+        </property>
+        <property name="contrasenya" type="string">
+            <column name="contrasenya"/>
+        </property>
+        <property name="rol" type="string">
+            <column length="50" name="rol"/>
+        </property>
+        <property name="fechaRegistro" type="date">
+            <column length="10" name="fecha_registro"/>
+        </property>
+    </class>
+</hibernate-mapping>

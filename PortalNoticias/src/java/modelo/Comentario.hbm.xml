@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="modelo.Comentario" table="comentario" catalog="noticias" optimistic-lock="version">
+        <id name="idComentario" type="java.lang.Integer">
+            <column name="id_comentario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="noticia" class="modelo.Noticia" fetch="select">
+            <column name="id_noticia" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" />
+        </many-to-one>
+        <property name="contenido" type="string">
+            <column name="contenido" length="65535" />
+        </property>
+        <property name="fechaCreacion" type="date">
+            <column name="fecha_creacion" length="10" />
+        </property>
+        <set name="valoracions" table="valoracion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_comentario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Valoracion" />
+        </set>
+    </class>
+</hibernate-mapping>

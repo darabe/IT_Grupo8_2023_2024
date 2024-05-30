@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:tns="http://service.soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.soap/">
+    <xs:element name="LoginException" type="tns:LoginException"/>
+    <xs:element name="loginUsuario" type="tns:loginUsuario"/>
+    <xs:element name="loginUsuarioResponse" type="tns:loginUsuarioResponse"/>
+    <xs:complexType name="loginUsuario">
+        <xs:sequence>
+            <xs:element name="correo" type="xs:string" minOccurs="0"/>
+            <xs:element name="contrasenya" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="loginUsuarioResponse">
+        <xs:sequence>
+            <xs:element name="Usuario" type="tns:usuario" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="usuario">
+        <xs:sequence>
+            <xs:element name="contrasenya" type="xs:string" minOccurs="0"/>
+            <xs:element name="correo" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaRegistro" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="idUsuario" type="xs:int" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="rol" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LoginException">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
