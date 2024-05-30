@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <!-- Acción anónima para mostrar la página de inicio -->
+        <action name="">
+            <result type="chain">
+                <param name="actionName">index</param>
+                <param name="namespace">/</param>
+            </result>
+        </action> 
+    </package>
+    <package name="loginSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la página de Login -->
+        <action name="loginUsuario">
+            <result>/loginUsuario.jsp</result>
+        </action>
+        <!-- Acción para procesar el formulario de Login -->
+        <action name="loginUsuarioAction" class="modelo.actions.usuario.usuarioLoginAction">
+            <result name="success">/loginTest.jsp</result>
+            <result name="error">/loginUsuario.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="modelo.Valoracion" table="valoracion" catalog="noticias" optimistic-lock="version">
+        <id name="idValoracion" type="java.lang.Integer">
+            <column name="id_valoracion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="comentario" class="modelo.Comentario" fetch="select">
+            <column name="id_comentario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" />
+        </many-to-one>
+        <property name="puntuacion" type="java.lang.Integer">
+            <column name="puntuacion" />
+        </property>
+        <property name="fechaCreacion" type="date">
+            <column name="fecha_creacion" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
