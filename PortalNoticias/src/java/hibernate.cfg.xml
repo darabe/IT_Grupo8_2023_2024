@@ -18,6 +18,7 @@
         <mapping resource="modelo/Noticia.hbm.xml"/>
         <mapping resource="modelo/Anuncio.hbm.xml"/>
         <mapping resource="modelo/Valoracion.hbm.xml"/>
+        <mapping resource="modelo/NoticiaEtiqueta.hbm.xml"/>
         <mapping resource="modelo/Usuario.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
