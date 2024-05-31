@@ -8,15 +8,15 @@ public class Etiqueta implements java.io.Serializable {
     private Integer idEtiqueta;
     private String nombre;
     private String descripcion;
-    private Set noticias = new HashSet(0);
+    private Set noticiaEtiquetas = new HashSet(0);
 
     public Etiqueta() {
     }
 
-    public Etiqueta(String nombre, String descripcion, Set noticias) {
+    public Etiqueta(String nombre, String descripcion, Set noticiaEtiquetas) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.noticias = noticias;
+        this.noticiaEtiquetas = noticiaEtiquetas;
     }
 
     public Integer getIdEtiqueta() {
@@ -43,12 +43,12 @@ public class Etiqueta implements java.io.Serializable {
         this.descripcion = descripcion;
     }
 
-    public Set getNoticias() {
-        return this.noticias;
+    public Set getNoticiaEtiquetas() {
+        return this.noticiaEtiquetas;
     }
 
-    public void setNoticias(Set noticias) {
-        this.noticias = noticias;
+    public void setNoticiaEtiquetas(Set noticiaEtiquetas) {
+        this.noticiaEtiquetas = noticiaEtiquetas;
     }
 
 }

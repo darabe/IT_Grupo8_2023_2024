@@ -15,7 +15,7 @@ public class Noticia implements java.io.Serializable {
     private String imagen;
     private String contenido;
     private Date fechaCreacion;
-    private Set etiquetas = new HashSet(0);
+    private Set noticiaEtiquetas = new HashSet(0);
     private Set comentarios = new HashSet(0);
 
     public Noticia() {
@@ -27,7 +27,7 @@ public class Noticia implements java.io.Serializable {
         this.usuario = usuario;
     }
 
-    public Noticia(Anuncio anuncio, Categoria categoria, Usuario usuario, String autor, String titulo, String imagen, String contenido, Date fechaCreacion, Set etiquetas, Set comentarios) {
+    public Noticia(Anuncio anuncio, Categoria categoria, Usuario usuario, String autor, String titulo, String imagen, String contenido, Date fechaCreacion, Set noticiaEtiquetas, Set comentarios) {
         this.anuncio = anuncio;
         this.categoria = categoria;
         this.usuario = usuario;
@@ -36,7 +36,7 @@ public class Noticia implements java.io.Serializable {
         this.imagen = imagen;
         this.contenido = contenido;
         this.fechaCreacion = fechaCreacion;
-        this.etiquetas = etiquetas;
+        this.noticiaEtiquetas = noticiaEtiquetas;
         this.comentarios = comentarios;
     }
 
@@ -112,12 +112,12 @@ public class Noticia implements java.io.Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Set getEtiquetas() {
-        return this.etiquetas;
+    public Set getNoticiaEtiquetas() {
+        return this.noticiaEtiquetas;
     }
 
-    public void setEtiquetas(Set etiquetas) {
-        this.etiquetas = etiquetas;
+    public void setNoticiaEtiquetas(Set noticiaEtiquetas) {
+        this.noticiaEtiquetas = noticiaEtiquetas;
     }
 
     public Set getComentarios() {

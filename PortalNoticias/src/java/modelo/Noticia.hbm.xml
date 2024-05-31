@@ -30,13 +30,11 @@
         <property name="fechaCreacion" type="date">
             <column name="fecha_creacion" length="10" />
         </property>
-        <set name="etiquetas" table="noticia_etiqueta" inverse="false" lazy="true" fetch="select">
+        <set name="noticiaEtiquetas" table="noticia_etiqueta" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_noticia" not-null="true" />
             </key>
-            <many-to-many entity-name="modelo.Etiqueta">
-                <column name="id_etiqueta" not-null="true" />
-            </many-to-many>
+            <one-to-many class="modelo.NoticiaEtiqueta" />
         </set>
         <set name="comentarios" table="comentario" inverse="true" lazy="true" fetch="select">
             <key>
