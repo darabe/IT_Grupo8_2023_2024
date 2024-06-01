@@ -15,6 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 header .logo {
     font-size: 28px;
@@ -134,7 +135,8 @@ section.comments h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
-section.comments form input[type="submit"] {
+section.comments form input[type="submit"],
+section.extra-buttons form input[type="submit"] {
     background-color: #4db6ac;
     color: white;
     border: none;
@@ -144,8 +146,15 @@ section.comments form input[type="submit"] {
     border-radius: 5px;
     transition: background-color 0.3s;
 }
-section.comments form input[type="submit"]:hover {
+section.comments form input[type="submit"]:hover,
+section.extra-buttons form input[type="submit"]:hover {
     background-color: #00796b;
+}
+section.extra-buttons {
+    padding: 10px 20px;
+}
+section.extra-buttons form {
+    margin-bottom: 10px;
 }
 footer {
     background-color: #00796b;
