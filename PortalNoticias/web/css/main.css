@@ -1,8 +1,10 @@
 /* Estilos generales */
-@import url("base/reset.css");
 @import url("base/general.css");
+@import url("base/reset.css");
 
 /* Estilos específicos de cada página */
+@import url("pages/anunciantes.css");
+@import url("pages/anuncios.css");
 @import url("pages/index.css");
 @import url("pages/loginTest.css");
 @import url("pages/loginUsuario.css");

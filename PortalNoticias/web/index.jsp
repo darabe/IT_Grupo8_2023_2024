@@ -46,6 +46,14 @@
                     <s:submit value="Nuevo comentario"/>
                 </s:form>
             </section>
+            <section class="extra-buttons">
+                <s:form action="getListaAnuncios">
+                    <s:submit value="Anuncios"/>
+                </s:form>
+                <s:form action="getListaAnunciantes">
+                    <s:submit value="Anunciantes"/>
+                </s:form>
+            </section>
         </main>
         <footer>
             <p>&copy; 2024 Portal de noticias. Todos los derechos reservados.</p>
