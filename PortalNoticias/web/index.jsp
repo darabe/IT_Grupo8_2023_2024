@@ -54,6 +54,14 @@
                     <s:submit value="Anunciantes"/>
                 </s:form>
             </section>
+            <section class="extra-buttons">
+                <s:form action="getListaCategorias">
+                    <s:submit value="Categorías"/>
+                </s:form>
+                <s:form action="getListaEtiquetas">
+                    <s:submit value="Etiquetas"/>
+                </s:form>
+            </section>
         </main>
         <footer>
             <p>&copy; 2024 Portal de noticias. Todos los derechos reservados.</p>
