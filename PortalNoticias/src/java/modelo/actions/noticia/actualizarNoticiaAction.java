@@ -1,0 +1,95 @@
+package modelo.actions.noticia;
+
+import static com.opensymphony.xwork2.Action.ERROR;
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.HashSet;
+import modelo.Noticia;
+import modelo.dao.AnuncioDAO;
+import modelo.dao.CategoriaDAO;
+import modelo.dao.NoticiaDAO;
+import modelo.dao.UsuarioDAO;
+
+public class actualizarNoticiaAction extends ActionSupport {
+
+    private String id;
+    private String autor;
+    private String titulo;
+    private String contenido;
+    private Noticia noticia;
+
+    public actualizarNoticiaAction() {
+        noticia = new Noticia();
+        this.clearErrorsAndMessages();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public Noticia getNoticia() {
+        return noticia;
+    }
+
+    public void setNoticia(Noticia noticia) {
+        this.noticia = noticia;
+    }
+
+    @Override
+    public void validate() {
+        // 
+    }
+
+    @Override
+    public String execute() throws Exception {
+        NoticiaDAO dao = new NoticiaDAO();
+        noticia = dao.obtenerNoticia(Integer.parseInt(id));
+        if (noticia == null) {
+            addActionError("¡No existe la noticia especificada!");
+            return ERROR;
+        }
+        // Cargar los nuevos atributos de la Noticia
+        noticia.setAutor(autor);
+        noticia.setTitulo(titulo);
+        noticia.setContenido(contenido);
+        // ARREGLAR
+        noticia.setImagen("");
+        noticia.setCategoria(new CategoriaDAO().obtenerCategoria(1));
+        noticia.setUsuario(new UsuarioDAO().obtenerUsuario(1));
+        noticia.setAnuncio(new AnuncioDAO().obtenerAnuncio(1));
+        noticia.setComentarios(new HashSet(0));
+        noticia.setNoticiaEtiquetas(new HashSet(0));
+        // Actualizar una Noticia existente
+        dao.actualizarNoticia(noticia);
+        return SUCCESS;
+    }
+
+}

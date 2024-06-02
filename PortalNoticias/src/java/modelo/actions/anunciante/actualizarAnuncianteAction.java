@@ -95,7 +95,7 @@ public class actualizarAnuncianteAction extends ActionSupport {
         anunciante.setTelefono(telefono);
         anunciante.setDireccion(direccion);
         anunciante.setPais(pais);
-        // ARREGLAR:
+        // ARREGLAR
         anunciante.setAnuncios(new HashSet(0));
         // Actualizar un Anunciante existente
         dao.actualizarAnunciante(anunciante);

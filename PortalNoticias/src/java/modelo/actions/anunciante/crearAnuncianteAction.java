@@ -87,7 +87,7 @@ public class crearAnuncianteAction extends ActionSupport {
         anunciante.setDireccion(direccion);
         anunciante.setPais(pais);
         anunciante.setFechaRegistro(fechaRegistro);
-        // ARREGLAR:
+        // ARREGLAR
         anunciante.setAnuncios(new HashSet(0));
         // Registrar un nuevo Anunciante
         AnuncianteDAO dao = new AnuncianteDAO();

@@ -36,7 +36,7 @@
                                 <th>Título</th>
                                 <th>Contenido</th>
                                 <th>Tipo</th>
-                                <th>Fecha</th>
+                                <th>Registro</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>

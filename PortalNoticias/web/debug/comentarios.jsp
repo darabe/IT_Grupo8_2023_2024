@@ -27,28 +27,28 @@
         </header>
         <main>
             <div class="content">
-                <section class="etiquetas">
-                    <h1>Etiquetas</h1>
+                <section class="anunciantes">
+                    <h1>Comentarios</h1>
                     <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
+                                <th>Contenido</th>
+                                <th>Registro</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Itera sobre la lista de Etiquetas y muestra cada uno de ellas -->
-                            <s:iterator value="#session.etiquetas">
+                            <!-- Itera sobre la lista de Comentarios y muestra cada uno de ellos -->
+                            <s:iterator value="#session.comentarios">
                                 <tr>
-                                    <td><s:property value="idEtiqueta"/></td>
-                                    <td><s:property value="nombre"/></td>
-                                    <td><s:property value="descripcion"/></td>
+                                    <td><s:property value="idComentario"/></td>
+                                    <td><s:property value="contenido"/></td>
+                                    <td><s:property value="fechaCreacion"/></td>
                                     <td>
-                                        <!-- Botón para borrar una Etiqueta -->
-                                        <s:form action="deleteEtiqueta" cssClass="delete-form">
-                                            <s:hidden name="id" value="%{idEtiqueta}"/>
+                                        <!-- Botón para borrar un Comentario -->
+                                        <s:form action="deleteComentario" cssClass="delete-form">
+                                            <s:hidden name="id" value="%{idComentario}"/>
                                             <button type="submit" class="delete-button">Borrar</button>
                                         </s:form>
                                     </td>
@@ -57,27 +57,25 @@
                         </tbody>
                     </table>
                     <!-- Formulario para filtrar por ID -->
-                    <s:form action="getListaEtiquetasFiltrada" class="filtrar-form">
-                        <s:textfield name="idFiltrada" label="Filtrar por ID"/>
+                    <s:form action="getListaComentariosFiltrado" class="filtrar-form">
+                        <s:textfield name="idFiltrado" label="Filtrar por ID"/>
                         <s:submit value="Filtrar"/>
                     </s:form>
-                    <!-- Formulario para mostrar todas las Etiquetas -->
-                    <s:form action="getListaEtiquetas" class="filtrar-form">
+                    <!-- Formulario para mostrar todos los Comentarios -->
+                    <s:form action="getListaComentarios" class="filtrar-form">
                         <s:submit value="Mostrar todo"/>
                     </s:form>
-                    <!-- Formulario para crear una nueva Etiqueta -->
-                    <s:form action="addEtiqueta">
-                        <h2>Registrar etiqueta</h2>
-                        <s:textfield name="nombre" label="Nombre"/>
-                        <s:textfield name="descripcion" label="Descripción"/>
+                    <!-- Formulario para crear un nuevo Comentario -->
+                    <s:form action="addComentario">
+                        <h2>Registrar comentario</h2>
+                        <s:textfield name="contenido" label="Contenido"/>
                         <s:submit value="Registrar"/>
                     </s:form>
-                    <!-- Formulario para actualizar una Etiqueta existente -->
-                    <s:form action="updateEtiqueta">
-                        <h2>Actualizar etiqueta</h2>
+                    <!-- Formulario para actualizar un Comentario existente -->
+                    <s:form action="updateComentario">
+                        <h2>Actualizar comentario</h2>
                         <s:textfield name="id" label="ID"/>
-                        <s:textfield name="nombre" label="Nombre"/>
-                        <s:textfield name="descripcion" label="Descripción"/>
+                        <s:textfield name="contenido" label="Contenido"/>
                         <s:submit value="Actualizar"/>
                     </s:form>
                 </section>

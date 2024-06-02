@@ -2,11 +2,18 @@
 @import url("base/general.css");
 @import url("base/reset.css");
 
+/* Estilos debug */
+@import url("debug/anunciantes.css");
+@import url("debug/anuncios.css");
+@import url("debug/categorias.css");
+@import url("debug/comentarios.css");
+@import url("debug/debug.css");
+@import url("debug/etiquetas.css");
+@import url("debug/loginTest.css");
+@import url("debug/noticias.css");
+@import url("debug/usuarios.css");
+@import url("debug/valoraciones.css");
+
 /* Estilos específicos de cada página */
-@import url("pages/anunciantes.css");
-@import url("pages/anuncios.css");
-@import url("pages/categorias.css");
-@import url("pages/etiquetas.css");
 @import url("pages/index.css");
-@import url("pages/loginTest.css");
 @import url("pages/loginUsuario.css");

@@ -5,10 +5,10 @@ import modelo.Etiqueta;
 import modelo.dao.EtiquetaDAO;
 
 public class borrarEtiquetaAction extends ActionSupport {
-    
+
     private String id;
     private Etiqueta etiqueta;
-    
+
     public borrarEtiquetaAction() {
         etiqueta = new Etiqueta();
         this.clearErrorsAndMessages();
@@ -29,12 +29,12 @@ public class borrarEtiquetaAction extends ActionSupport {
     public void setEtiqueta(Etiqueta etiqueta) {
         this.etiqueta = etiqueta;
     }
-    
+
     @Override
-    public void validate(){
+    public void validate() {
         //
     }
-    
+
     @Override
     public String execute() throws Exception {
         EtiquetaDAO dao = new EtiquetaDAO();
@@ -42,5 +42,5 @@ public class borrarEtiquetaAction extends ActionSupport {
         dao.borrarEtiqueta(etiqueta);
         return SUCCESS;
     }
-    
+
 }

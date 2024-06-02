@@ -46,21 +46,34 @@
                     <s:submit value="Nuevo comentario"/>
                 </s:form>
             </section>
-            <section class="extra-buttons">
-                <s:form action="getListaAnuncios">
-                    <s:submit value="Anuncios"/>
-                </s:form>
-                <s:form action="getListaAnunciantes">
-                    <s:submit value="Anunciantes"/>
-                </s:form>
-            </section>
-            <section class="extra-buttons">
-                <s:form action="getListaCategorias">
-                    <s:submit value="Categorías"/>
-                </s:form>
-                <s:form action="getListaEtiquetas">
-                    <s:submit value="Etiquetas"/>
-                </s:form>
+            <section class="debug">
+                <h2>debug</h2>
+                <section class="extra-buttons">
+                    <s:form action="getListaAnunciantes">
+                        <s:submit value="Anunciantes"/>
+                    </s:form>
+                    <s:form action="getListaAnuncios">
+                        <s:submit value="Anuncios"/>
+                    </s:form>
+                    <s:form action="getListaCategorias">
+                        <s:submit value="Categorías"/>
+                    </s:form>
+                    <s:form action="getListaComentarios">
+                        <s:submit value="Comentarios"/>
+                    </s:form>
+                    <s:form action="getListaEtiquetas">
+                        <s:submit value="Etiquetas"/>
+                    </s:form>
+                    <s:form action="getListaNoticias">
+                        <s:submit value="Noticias"/>
+                    </s:form>
+                    <s:form action="getListaUsuarios">
+                        <s:submit value="Usuarios"/>
+                    </s:form>
+                    <s:form action="getListaValoraciones">
+                        <s:submit value="Valoraciones"/>
+                    </s:form>
+                </section>
             </section>
         </main>
         <footer>
