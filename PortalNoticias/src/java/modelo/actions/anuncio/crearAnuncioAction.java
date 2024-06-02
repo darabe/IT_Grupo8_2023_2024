@@ -69,7 +69,7 @@ public class crearAnuncioAction extends ActionSupport {
         anuncio.setContenido(contenido);
         anuncio.setTipo(tipo);
         anuncio.setFechaCreacion(fechaRegistro);
-        // ARREGLAR:
+        // ARREGLAR
         anuncio.setImagen("");
         anuncio.setAnunciante(new AnuncianteDAO().obtenerAnunciante(1));
         anuncio.setNoticias(new HashSet(0));

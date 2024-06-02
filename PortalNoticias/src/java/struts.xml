@@ -16,25 +16,25 @@
         </action>
         <!-- Acción para procesar el formulario de Login -->
         <action name="loginUsuarioAction" class="modelo.actions.usuario.usuarioLoginAction">
-            <result name="success">/loginTest.jsp</result>
+            <result name="success">/debug/loginTest.jsp</result>
             <result name="error">/loginUsuario.jsp</result>
         </action>
     </package>
     <package name="anuncianteSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la lista de Anunciantes -->
         <action name="getListaAnunciantes" class="modelo.actions.anunciante.obtenerAnuncianteAction">
-            <result name="success">/anunciantes.jsp</result>
-            <result name="error">/anunciantes.jsp</result>
+            <result name="success">/debug/anunciantes.jsp</result>
+            <result name="error">/debug/anunciantes.jsp</result>
         </action>
         <!-- Acción para mostrar la lista de Anunciantes filtrada -->
         <action name="getListaAnunciantesFiltrado" class="modelo.actions.anunciante.obtenerAnuncianteAction" method="obtenerAnuncianteFiltrado">
-            <result name="success">/anunciantes.jsp</result>
-            <result name="error">/anunciantes.jsp</result>
+            <result name="success">/debug/anunciantes.jsp</result>
+            <result name="error">/debug/anunciantes.jsp</result>
         </action>
         <!-- Acción para seleccionar un Anunciante específico -->
         <action name="getAnunciante" class="modelo.actions.anunciante.obtenerAnuncianteAction" method="obtenerAnunciante">
-            <result name="success">/anunciantes.jsp</result>
-            <result name="error">/anunciantes.jsp</result>
+            <result name="success">/debug/anunciantes.jsp</result>
+            <result name="error">/debug/anunciantes.jsp</result>
         </action>
         <!-- Acción para borrar un Anunciante específico -->
         <action name="deleteAnunciante" class="modelo.actions.anunciante.borrarAnuncianteAction">
@@ -58,18 +58,18 @@
     <package name="anuncioSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la lista de Anuncios -->
         <action name="getListaAnuncios" class="modelo.actions.anuncio.obtenerAnuncioAction">
-            <result name="success">/anuncios.jsp</result>
-            <result name="error">/anuncios.jsp</result>
+            <result name="success">/debug/anuncios.jsp</result>
+            <result name="error">/debug/anuncios.jsp</result>
         </action>
         <!-- Acción para mostrar la lista de Anuncios filtrada -->
         <action name="getListaAnunciosFiltrado" class="modelo.actions.anuncio.obtenerAnuncioAction" method="obtenerAnuncioFiltrado">
-            <result name="success">/anuncios.jsp</result>
-            <result name="error">/anuncios.jsp</result>
+            <result name="success">/debug/anuncios.jsp</result>
+            <result name="error">/debug/anuncios.jsp</result>
         </action>
         <!-- Acción para seleccionar un Anuncio específico -->
         <action name="getAnuncio" class="modelo.actions.anuncio.obtenerAnuncioAction" method="obtenerAnuncio">
-            <result name="success">/anuncios.jsp</result>
-            <result name="error">/anuncios.jsp</result>
+            <result name="success">/debug/anuncios.jsp</result>
+            <result name="error">/debug/anuncios.jsp</result>
         </action>
         <!-- Acción para borrar un Anuncio específico -->
         <action name="deleteAnuncio" class="modelo.actions.anuncio.borrarAnuncioAction">
@@ -90,56 +90,21 @@
             </result>
         </action>
     </package>
-    <package name="etiquetaSection" namespace="/" extends="struts-default">
-        <!-- Acción para mostrar la lista de Etiquetas -->
-        <action name="getListaEtiquetas" class="modelo.actions.etiqueta.obtenerEtiquetaAction">
-            <result name="success">/etiquetas.jsp</result>
-            <result name="error">/etiquetas.jsp</result>
-        </action>
-        <!-- Acción para mostrar la lista de Etiquetas filtrada -->
-        <action name="getListaEtiquetasFiltrada" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiquetaFiltrada">
-            <result name="success">/etiquetas.jsp</result>
-            <result name="error">/etiquetas.jsp</result>
-        </action>
-        <!-- Acción para seleccionar una Etiqueta específica -->
-        <action name="getEtiqueta" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiqueta">
-            <result name="success">/etiquetas.jsp</result>
-            <result name="error">/etiquetas.jsp</result>
-        </action>
-        <!-- Acción para borrar una Etiqueta específica -->
-        <action name="deleteEtiqueta" class="modelo.actions.etiqueta.borrarEtiquetaAction">
-            <result type="redirectAction">
-                <param name="actionName">getListaEtiquetas</param>
-            </result>
-        </action>
-        <!-- Acción para registrar una Etiqueta -->
-        <action name="addEtiqueta" class="modelo.actions.etiqueta.crearEtiquetaAction">
-            <result type="redirectAction">
-                <param name="actionName">getListaEtiquetas</param>
-            </result>
-        </action>
-        <!-- Acción para actualizar una Etiqueta específica -->
-        <action name="updateEtiqueta" class="modelo.actions.etiqueta.actualizarEtiquetaAction">
-            <result type="redirectAction">
-                <param name="actionName">getListaEtiquetas</param>
-            </result>
-        </action>
-    </package>
     <package name="categoriaSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la lista de Categorías -->
         <action name="getListaCategorias" class="modelo.actions.categoria.obtenerCategoriaAction">
-            <result name="success">/categorias.jsp</result>
-            <result name="error">/categorias.jsp</result>
+            <result name="success">/debug/categorias.jsp</result>
+            <result name="error">/debug/categorias.jsp</result>
         </action>
         <!-- Acción para mostrar la lista de Categorías filtrada -->
-        <action name="getListaCategoriasFiltrada" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoriaFiltrada">
-            <result name="success">/categorias.jsp</result>
-            <result name="error">/categorias.jsp</result>
+        <action name="getListaCategoriasFiltrado" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoriaFiltrado">
+            <result name="success">/debug/categorias.jsp</result>
+            <result name="error">/debug/categorias.jsp</result>
         </action>
         <!-- Acción para seleccionar una Categoría específica -->
         <action name="getCategoria" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoria">
-            <result name="success">/categorias.jsp</result>
-            <result name="error">/categorias.jsp</result>
+            <result name="success">/debug/categorias.jsp</result>
+            <result name="error">/debug/categorias.jsp</result>
         </action>
         <!-- Acción para borrar una Categoría específica -->
         <action name="deleteCategoria" class="modelo.actions.categoria.borrarCategoriaAction">
@@ -160,5 +125,179 @@
             </result>
         </action>
     </package>
-    <!-- Resto de paquetes y acciones para las demás entidades -->
+    <package name="comentarioSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Comentarios -->
+        <action name="getListaComentarios" class="modelo.actions.comentario.obtenerComentarioAction">
+            <result name="success">/debug/comentarios.jsp</result>
+            <result name="error">/debug/comentarios.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Comentarios filtrada -->
+        <action name="getListaComentariosFiltrado" class="modelo.actions.comentario.obtenerComentarioAction" method="obtenerComentarioFiltrado">
+            <result name="success">/debug/comentarios.jsp</result>
+            <result name="error">/debug/comentarios.jsp</result>
+        </action>
+        <!-- Acción para seleccionar un Comentario específico -->
+        <action name="getComentario" class="modelo.actions.comentario.obtenerComentarioAction" method="obtenerComentario">
+            <result name="success">/debug/comentarios.jsp</result>
+            <result name="error">/debug/comentarios.jsp</result>
+        </action>
+        <!-- Acción para borrar un Comentario específico -->
+        <action name="deleteComentario" class="modelo.actions.comentario.borrarComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaComentarios</param>
+            </result>
+        </action>
+        <!-- Acción para registrar un Comentario -->
+        <action name="addComentario" class="modelo.actions.comentario.crearComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaComentarios</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un Comentario específico -->
+        <action name="updateComentario" class="modelo.actions.comentario.actualizarComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaComentarios</param>
+            </result>
+        </action>
+    </package>
+    <package name="etiquetaSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Etiquetas -->
+        <action name="getListaEtiquetas" class="modelo.actions.etiqueta.obtenerEtiquetaAction">
+            <result name="success">/debug/etiquetas.jsp</result>
+            <result name="error">/debug/etiquetas.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Etiquetas filtrada -->
+        <action name="getListaEtiquetasFiltrado" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiquetaFiltrado">
+            <result name="success">/debug/etiquetas.jsp</result>
+            <result name="error">/debug/etiquetas.jsp</result>
+        </action>
+        <!-- Acción para seleccionar una Etiqueta específica -->
+        <action name="getEtiqueta" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiqueta">
+            <result name="success">/debug/etiquetas.jsp</result>
+            <result name="error">/debug/etiquetas.jsp</result>
+        </action>
+        <!-- Acción para borrar una Etiqueta específica -->
+        <action name="deleteEtiqueta" class="modelo.actions.etiqueta.borrarEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetas</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Etiqueta -->
+        <action name="addEtiqueta" class="modelo.actions.etiqueta.crearEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetas</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Etiqueta específica -->
+        <action name="updateEtiqueta" class="modelo.actions.etiqueta.actualizarEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetas</param>
+            </result>
+        </action>
+    </package>
+    <package name="noticiaSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Noticias -->
+        <action name="getListaNoticias" class="modelo.actions.noticia.obtenerNoticiaAction">
+            <result name="success">/debug/noticias.jsp</result>
+            <result name="error">/debug/noticias.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Noticias filtrada -->
+        <action name="getListaNoticiasFiltrado" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticiaFiltrado">
+            <result name="success">/debug/noticias.jsp</result>
+            <result name="error">/debug/noticias.jsp</result>
+        </action>
+        <!-- Acción para seleccionar una Noticia específica -->
+        <action name="getNoticia" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticia">
+            <result name="success">/debug/noticias.jsp</result>
+            <result name="error">/debug/noticias.jsp</result>
+        </action>
+        <!-- Acción para borrar una Noticia específica -->
+        <action name="deleteNoticia" class="modelo.actions.noticia.borrarNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaNoticias</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Noticia -->
+        <action name="addNoticia" class="modelo.actions.noticia.crearNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaNoticias</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Noticia específica -->
+        <action name="updateNoticia" class="modelo.actions.noticia.actualizarNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaNoticias</param>
+            </result>
+        </action>
+    </package>
+    <package name="usuarioSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Usuarios -->
+        <action name="getListaUsuarios" class="modelo.actions.usuario.obtenerUsuarioAction">
+            <result name="success">/debug/usuarios.jsp</result>
+            <result name="error">/debug/usuarios.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Usuarios filtrada -->
+        <action name="getListaUsuariosFiltrado" class="modelo.actions.usuario.obtenerUsuarioAction" method="obtenerUsuarioFiltrado">
+            <result name="success">/debug/usuarios.jsp</result>
+            <result name="error">/debug/usuarios.jsp</result>
+        </action>
+        <!-- Acción para seleccionar una Usuario específico -->
+        <action name="getUsuario" class="modelo.actions.usuario.obtenerUsuarioAction" method="obtenerUsuario">
+            <result name="success">/debug/usuarios.jsp</result>
+            <result name="error">/debug/usuarios.jsp</result>
+        </action>
+        <!-- Acción para borrar un Usuario específico -->
+        <action name="deleteUsuario" class="modelo.actions.usuario.borrarUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaUsuarios</param>
+            </result>
+        </action>
+        <!-- Acción para registrar un Usuario -->
+        <action name="addUsuario" class="modelo.actions.usuario.crearUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaUsuarios</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un Usuario específico -->
+        <action name="updateUsuario" class="modelo.actions.usuario.actualizarUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaUsuarios</param>
+            </result>
+        </action>
+    </package>
+    <package name="valoracionSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Valoraciones -->
+        <action name="getListaValoraciones" class="modelo.actions.valoracion.obtenerValoracionAction">
+            <result name="success">/debug/valoraciones.jsp</result>
+            <result name="error">/debug/valoraciones.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Valoraciones filtrada -->
+        <action name="getListaValoracionesFiltrado" class="modelo.actions.valoracion.obtenerValoracionAction" method="obtenerValoracionFiltrado">
+            <result name="success">/debug/valoraciones.jsp</result>
+            <result name="error">/debug/valoraciones.jsp</result>
+        </action>
+        <!-- Acción para seleccionar una Valoración específica -->
+        <action name="getValoracion" class="modelo.actions.valoracion.obtenerValoracionAction" method="obtenerValoracion">
+            <result name="success">/debug/valoraciones.jsp</result>
+            <result name="error">/debug/valoraciones.jsp</result>
+        </action>
+        <!-- Acción para borrar una Valoración específica -->
+        <action name="deleteValoracion" class="modelo.actions.valoracion.borrarValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaValoraciones</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Valoración -->
+        <action name="addValoracion" class="modelo.actions.valoracion.crearValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaValoraciones</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Valoración específica -->
+        <action name="updateValoracion" class="modelo.actions.valoracion.actualizarValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaValoraciones</param>
+            </result>
+        </action>
+    </package>
 </struts>

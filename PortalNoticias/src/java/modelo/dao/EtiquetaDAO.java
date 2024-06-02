@@ -51,4 +51,5 @@ public class EtiquetaDAO {
         sesion.delete(etiqueta);
         transaccion.commit();
     }
+    
 }

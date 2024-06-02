@@ -11,7 +11,7 @@ import org.apache.struts2.ServletActionContext;
 public class obtenerEtiquetaAction extends ActionSupport {
 
     private HttpSession sesion;
-    private String idFiltrada;
+    private String idFiltrado;
     private Etiqueta etiqueta;
     private List<Etiqueta> etiquetas;
 
@@ -30,12 +30,12 @@ public class obtenerEtiquetaAction extends ActionSupport {
         this.sesion = sesion;
     }
 
-    public String getIdFiltrada() {
-        return idFiltrada;
+    public String getIdFiltrado() {
+        return idFiltrado;
     }
 
-    public void setIdFiltrada(String idFiltrada) {
-        this.idFiltrada = idFiltrada;
+    public void setIdFiltrado(String idFiltrado) {
+        this.idFiltrado = idFiltrado;
     }
 
     public Etiqueta getEtiqueta() {
@@ -56,7 +56,7 @@ public class obtenerEtiquetaAction extends ActionSupport {
 
     public String obtenerEtiqueta() {
         EtiquetaDAO dao = new EtiquetaDAO();
-        etiqueta = dao.obtenerEtiqueta(Integer.parseInt(idFiltrada));
+        etiqueta = dao.obtenerEtiqueta(Integer.parseInt(idFiltrado));
         if (etiqueta == null) {
             addActionError("¡No se ha encontrado ninguna etiqueta!");
             return ERROR;
@@ -65,11 +65,11 @@ public class obtenerEtiquetaAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public String obtenerEtiquetaFiltrada() {
+    public String obtenerEtiquetaFiltrado() {
         EtiquetaDAO dao = new EtiquetaDAO();
-        etiqueta = dao.obtenerEtiqueta(Integer.parseInt(idFiltrada));
+        etiqueta = dao.obtenerEtiqueta(Integer.parseInt(idFiltrado));
         if (etiqueta == null) {
-            addActionError("¡No se ha encontrado ninguna etiqueta");
+            addActionError("¡No se ha encontrado ninguna etiqueta!");
             return ERROR;
         }
         etiquetas.clear();

@@ -2,12 +2,11 @@ package modelo.actions.etiqueta;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.HashSet;
-import java.util.Set;
 import modelo.Etiqueta;
 import modelo.dao.EtiquetaDAO;
 
 public class actualizarEtiquetaAction extends ActionSupport {
-    
+
     private String id;
     private String nombre;
     private String descripcion;
@@ -49,9 +48,9 @@ public class actualizarEtiquetaAction extends ActionSupport {
     public void setEtiqueta(Etiqueta etiqueta) {
         this.etiqueta = etiqueta;
     }
-    
+
     @Override
-    public void validate(){
+    public void validate() {
         //
     }
 
@@ -59,13 +58,14 @@ public class actualizarEtiquetaAction extends ActionSupport {
     public String execute() throws Exception {
         EtiquetaDAO dao = new EtiquetaDAO();
         etiqueta = dao.obtenerEtiqueta(Integer.parseInt(id));
-        if(etiqueta == null){
+        if (etiqueta == null) {
             addActionError("¡No existe la etiqueta especificada!");
             return ERROR;
         }
         // Cargar los nuevos atributos de la Etiqueta
         etiqueta.setNombre(nombre);
         etiqueta.setDescripcion(descripcion);
+        // ARREGLAR
         etiqueta.setNoticiaEtiquetas(new HashSet(0));
         // Actualizar una Etiqueta existente
         dao.actualizarEtiqueta(etiqueta);

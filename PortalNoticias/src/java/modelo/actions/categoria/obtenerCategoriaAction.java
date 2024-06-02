@@ -11,7 +11,7 @@ import org.apache.struts2.ServletActionContext;
 public class obtenerCategoriaAction extends ActionSupport {
 
     private HttpSession sesion;
-    private String idFiltrada;
+    private String idFiltrado;
     private Categoria categoria;
     private List<Categoria> categorias;
 
@@ -30,12 +30,12 @@ public class obtenerCategoriaAction extends ActionSupport {
         this.sesion = sesion;
     }
 
-    public String getIdFiltrada() {
-        return idFiltrada;
+    public String getIdFiltrado() {
+        return idFiltrado;
     }
 
-    public void setIdFiltrada(String idFiltrada) {
-        this.idFiltrada = idFiltrada;
+    public void setIdFiltrado(String idFiltrado) {
+        this.idFiltrado = idFiltrado;
     }
 
     public Categoria getCategoria() {
@@ -56,7 +56,7 @@ public class obtenerCategoriaAction extends ActionSupport {
 
     public String obtenerCategoria() {
         CategoriaDAO dao = new CategoriaDAO();
-        categoria = dao.obtenerCategoria(Integer.parseInt(idFiltrada));
+        categoria = dao.obtenerCategoria(Integer.parseInt(idFiltrado));
         if (categoria == null) {
             addActionError("¡No se ha encontrado ninguna categoría!");
             return ERROR;
@@ -65,9 +65,9 @@ public class obtenerCategoriaAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public String obtenerCategoriaFiltrada() {
+    public String obtenerCategoriaFiltrado() {
         CategoriaDAO dao = new CategoriaDAO();
-        categoria = dao.obtenerCategoria(Integer.parseInt(idFiltrada));
+        categoria = dao.obtenerCategoria(Integer.parseInt(idFiltrado));
         if (categoria == null) {
             addActionError("¡No se ha encontrado ninguna categoría!");
             return ERROR;
@@ -78,6 +78,7 @@ public class obtenerCategoriaAction extends ActionSupport {
         return SUCCESS;
     }
 
+    @Override
     public String execute() throws Exception {
         CategoriaDAO dao = new CategoriaDAO();
         categorias = dao.obtenerCategorias();

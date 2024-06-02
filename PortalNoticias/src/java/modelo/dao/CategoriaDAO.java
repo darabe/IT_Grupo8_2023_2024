@@ -51,4 +51,5 @@ public class CategoriaDAO {
         sesion.delete(categoria);
         transaccion.commit();
     }
+
 }

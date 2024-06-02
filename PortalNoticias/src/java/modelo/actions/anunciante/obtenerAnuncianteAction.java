@@ -89,4 +89,5 @@ public class obtenerAnuncianteAction extends ActionSupport {
         sesion.setAttribute("anunciantes", anunciantes);
         return SUCCESS;
     }
+
 }

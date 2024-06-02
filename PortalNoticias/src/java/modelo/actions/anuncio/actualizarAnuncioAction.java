@@ -78,7 +78,7 @@ public class actualizarAnuncioAction extends ActionSupport {
         anuncio.setTitulo(titulo);
         anuncio.setContenido(contenido);
         anuncio.setTipo(tipo);
-        // ARREGLAR:
+        // ARREGLAR
         anuncio.setImagen("");
         anuncio.setAnunciante(new AnuncianteDAO().obtenerAnunciante(1));
         anuncio.setNoticias(new HashSet(0));
