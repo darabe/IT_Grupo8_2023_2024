@@ -4,7 +4,7 @@
         <!-- Acción anónima para mostrar la página de inicio -->
         <action name="">
             <result type="chain">
-                <param name="test">getIndex</param>
+                <param name="actionName">getIndex</param>
                 <param name="namespace">/</param>
             </result>
         </action>
