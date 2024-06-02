@@ -4,10 +4,16 @@
         <!-- Acción anónima para mostrar la página de inicio -->
         <action name="">
             <result type="chain">
-                <param name="actionName">index</param>
+                <param name="test">getIndex</param>
                 <param name="namespace">/</param>
             </result>
-        </action> 
+        </action>
+    </package>
+    <package name="mainSection" namespace="/" extends="struts-default">
+        <action name="getIndex" class="modelo.actions.noticia.obtenerNoticiaAction">
+            <result name="success">/index.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
     </package>
     <package name="loginSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la página de Login -->

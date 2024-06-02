@@ -28,10 +28,12 @@
         <main>
             <div class="content">
                 <section class="news">
-                    <article>
-                        <h1>Título de la noticia</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim. Nulla facilisi.</p>
-                    </article>
+                    <s:iterator value="#session.noticias">
+                        <article class="noticia">
+                            <h4><s:property value="titulo"/></h4>
+                            <h5><s:property value="autor"/></h5>
+                        </article>
+                    </s:iterator>
                 </section>
                 <aside class="ads">
                     <h2>Anuncios</h2>

@@ -86,6 +86,7 @@ public class obtenerNoticiaAction extends ActionSupport {
             addActionError("¡La lista de noticias está vacía!");
             return ERROR;
         }
+        setNoticias(noticias);
         sesion.setAttribute("noticias", noticias);
         return SUCCESS;
     }
