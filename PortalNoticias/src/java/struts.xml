@@ -90,5 +90,75 @@
             </result>
         </action>
     </package>
+    <package name="etiquetaSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Etiquetas -->
+        <action name="getListaEtiquetas" class="modelo.actions.etiqueta.obtenerEtiquetaAction">
+            <result name="success">/etiquetas.jsp</result>
+            <result name="error">/etiquetas.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Etiquetas filtrada -->
+        <action name="getListaEtiquetasFiltrada" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiquetaFiltrada">
+            <result name="success">/etiquetas.jsp</result>
+            <result name="error">/etiquetas.jsp</result>
+        </action>
+        <!-- Acción para seleccionar una Etiqueta específica -->
+        <action name="getEtiqueta" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiqueta">
+            <result name="success">/etiquetas.jsp</result>
+            <result name="error">/etiquetas.jsp</result>
+        </action>
+        <!-- Acción para borrar una Etiqueta específica -->
+        <action name="deleteEtiqueta" class="modelo.actions.etiqueta.borrarEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetas</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Etiqueta -->
+        <action name="addEtiqueta" class="modelo.actions.etiqueta.crearEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetas</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Etiqueta específica -->
+        <action name="updateEtiqueta" class="modelo.actions.etiqueta.actualizarEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetas</param>
+            </result>
+        </action>
+    </package>
+    <package name="categoriaSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar la lista de Categorías -->
+        <action name="getListaCategorias" class="modelo.actions.categoria.obtenerCategoriaAction">
+            <result name="success">/categorias.jsp</result>
+            <result name="error">/categorias.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Categorías filtrada -->
+        <action name="getListaCategoriasFiltrada" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoriaFiltrada">
+            <result name="success">/categorias.jsp</result>
+            <result name="error">/categorias.jsp</result>
+        </action>
+        <!-- Acción para seleccionar una Categoría específica -->
+        <action name="getCategoria" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoria">
+            <result name="success">/categorias.jsp</result>
+            <result name="error">/categorias.jsp</result>
+        </action>
+        <!-- Acción para borrar una Categoría específica -->
+        <action name="deleteCategoria" class="modelo.actions.categoria.borrarCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaCategorias</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Categoría -->
+        <action name="addCategoria" class="modelo.actions.categoria.crearCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaCategorias</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Categoría específica -->
+        <action name="updateCategoria" class="modelo.actions.categoria.actualizarCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaCategorias</param>
+            </result>
+        </action>
+    </package>
     <!-- Resto de paquetes y acciones para las demás entidades -->
 </struts>
