@@ -228,12 +228,19 @@
             <result type="redirectAction">
                 <param name="actionName">getListaNoticias</param>
             </result>
+            <result name="input">/debug/noticias.jsp</result>
         </action>
         <!-- Acción para actualizar una Noticia específica -->
         <action name="updateNoticia" class="modelo.actions.noticia.actualizarNoticiaAction">
             <result type="redirectAction">
                 <param name="actionName">getListaNoticias</param>
             </result>
+            <result name="input">/debug/noticias.jsp</result>
+        </action>
+        <action name="categoriaNoticia" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticiaPorCategoria">
+            <result name="success">/noticias.jsp</result>
+            <result name="input">/noticias.jsp</result>
+            <result name="error" type="redirectAction">getIndex</result>
         </action>
     </package>
     <package name="usuarioSection" namespace="/" extends="struts-default">

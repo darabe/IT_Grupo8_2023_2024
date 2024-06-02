@@ -4,6 +4,8 @@ import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import modelo.Noticia;
 import modelo.dao.AnuncioDAO;
 import modelo.dao.CategoriaDAO;
@@ -65,7 +67,21 @@ public class actualizarNoticiaAction extends ActionSupport {
 
     @Override
     public void validate() {
-        // 
+        String expresion="\"^[0-9]+$\"";
+        String fId=getId();
+         if(getAutor().equals("") || getContenido().equals("") || getTitulo()=="" || getId()==""){
+            addFieldError("autor","se requiere autor");
+            addFieldError("contenido", "Se requiere contenido");
+            addFieldError("titulo", "Se requiere titulo");
+            addFieldError("id", "Se requiere id");
+        } 
+         
+          Pattern pattern=Pattern.compile(expresion);
+        Matcher mat= pattern.matcher(fId);
+        
+        if(!mat.matches()){
+            addFieldError("id", "El id solo puede ser numerico positivo");
+        }
     }
 
     @Override

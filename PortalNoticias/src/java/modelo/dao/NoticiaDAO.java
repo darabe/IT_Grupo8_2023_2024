@@ -30,6 +30,17 @@ public class NoticiaDAO {
         transaccion.commit();
         return noticia;
     }
+    
+    public List<Noticia> obtenerNoticiaporCategoria(int id_categoria) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("FROM Noticia WHERE id_categoria = :id_categoria");
+        consulta.setParameter("id_categoria", id_categoria);
+        List<Noticia> noticias = new ArrayList<>();
+        noticias = (ArrayList<Noticia>) consulta.list();       
+        transaccion.commit();
+        return noticias;
+    }
 
     public void registrarNoticia(Noticia noticia) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();

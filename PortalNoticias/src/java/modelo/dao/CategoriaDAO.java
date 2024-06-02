@@ -30,6 +30,16 @@ public class CategoriaDAO {
         transaccion.commit();
         return categoria;
     }
+    
+    public Categoria obtenerCategoriaPorNombre(String nombre) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("FROM Categoria WHERE nombre = :nombre");
+        consulta.setParameter("nombre", nombre);
+        Categoria categoria = (Categoria) consulta.uniqueResult();
+        transaccion.commit();
+        return categoria;
+    }
 
     public void registrarCategoria(Categoria categoria) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
