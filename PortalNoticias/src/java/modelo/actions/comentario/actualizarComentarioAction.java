@@ -4,13 +4,16 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import javax.servlet.http.HttpSession;
 import modelo.Comentario;
 import modelo.dao.ComentarioDAO;
 import modelo.dao.NoticiaDAO;
 import modelo.dao.UsuarioDAO;
+import org.apache.struts2.ServletActionContext;
 
 public class actualizarComentarioAction extends ActionSupport {
 
+    private HttpSession sesion;
     private String id;
     private String contenido;
     private Comentario comentario;
@@ -44,6 +47,14 @@ public class actualizarComentarioAction extends ActionSupport {
         this.comentario = comentario;
     }
 
+    public HttpSession getSesion() {
+        return sesion;
+    }
+
+    public void setSesion(HttpSession sesion) {
+        this.sesion = sesion;
+    }
+
     @Override
     public void validate() {
         // 
@@ -51,6 +62,8 @@ public class actualizarComentarioAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        this.sesion = ServletActionContext.getRequest().getSession(false);
+        int idUser=(int)this.sesion.getAttribute("idUsuario");
         ComentarioDAO dao = new ComentarioDAO();
         comentario = dao.obtenerComentario(Integer.parseInt(id));
         if (comentario == null) {
@@ -64,9 +77,8 @@ public class actualizarComentarioAction extends ActionSupport {
         // Cargar los nuevos atributos del Comentario
         comentario.setContenido(contenido);
         comentario.setFechaCreacion(fechaActualizada);
-        // ARREGLAR
-        comentario.setNoticia(new NoticiaDAO().obtenerNoticia(1));
-        comentario.setUsuario(new UsuarioDAO().obtenerUsuario(1));
+        UsuarioDAO udao=new UsuarioDAO();
+        comentario.setUsuario(udao.obtenerUsuario(idUser));
         comentario.setValoracions(new HashSet(0));
         // Actualizar un Comentario existente
         dao.actualizarComentario(comentario);

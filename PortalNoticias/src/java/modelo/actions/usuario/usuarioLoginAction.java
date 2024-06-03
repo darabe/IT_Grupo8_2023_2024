@@ -25,6 +25,7 @@ public class usuarioLoginAction extends ActionSupport {
             if (resultado != null) {
                 ActionContext ctx = ActionContext.getContext();
                 ctx.getSession().put("usuario", resultado.getNombre());
+                ctx.getSession().put("idUsuario", resultado.getIdUsuario());
                 return SUCCESS;
             } else {
                 addActionError("¡Correo electrónico o contraseña incorrecta!");

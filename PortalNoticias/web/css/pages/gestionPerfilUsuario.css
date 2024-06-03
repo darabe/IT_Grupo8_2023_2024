@@ -1,0 +1,137 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-jun-2024, 21:51:54
+    Author     : Victor
+*/
+.infoUser{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #4db6ac;
+    border-radius: 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.infoUser table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+}
+
+.infoUser table th, .infoUser table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.infoUser table th {
+    background-color: #00796b;
+    color: #fff;
+}
+
+.infoUser h2{
+    margin-top: 0;
+}
+
+.infoUser form h2 {
+    font-size: 24px;
+    color: #00796b;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.infoUser form input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #4db6ac;
+    border-radius: 5px;
+    font-size: 16px;
+    width: calc(100%);
+}
+
+.infoUser form input[type="submit"] {
+    background-color: #4db6ac;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.infoUser form input[type="submit"]:hover {
+    background-color: #00796b;
+}
+
+
+
+div form input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #4db6ac;
+    border-radius: 5px;
+    font-size: 16px;
+    width: calc(100%);
+}
+
+div form input[type="submit"] {
+    background-color: #4db6ac;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+div form input[type="submit"]:hover {
+    background-color: #00796b;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    min-width: 40px;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+main > * {
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.content section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.content section h1 {
+    margin-bottom: 20px;
+}
