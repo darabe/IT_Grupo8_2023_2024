@@ -5,6 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import modelo.Noticia;
 import modelo.dao.AnuncioDAO;
 import modelo.dao.CategoriaDAO;
@@ -57,9 +59,15 @@ public class crearNoticiaAction extends ActionSupport {
 
     @Override
     public void validate() {
-        // 
+        
+      
+        if(getAutor().equals("") || getContenido().equals("") || getTitulo()==""){
+            addFieldError("autor","se requiere autor");
+            addFieldError("contenido", "Se requiere contenido");
+            addFieldError("titulo", "Se requiere titulo");
+        }             
     }
-
+    
     @Override
     public String execute() throws Exception {
         // Obtener la fecha actual con el formato deseado
