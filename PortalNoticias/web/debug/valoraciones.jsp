@@ -66,6 +66,7 @@
                     <!-- Formulario para crear una nueva Valoración -->
                     <s:form action="addValoracion">
                         <h2>Registrar valoración</h2>
+                        <s:textfield name="idComentario" label="ID Comentario"/>
                         <s:textfield name="puntuacion" label="Puntuación"/>
                         <s:submit value="Registrar"/>
                     </s:form>
@@ -73,6 +74,7 @@
                     <s:form action="updateValoracion">
                         <h2>Actualizar valoración</h2>
                         <s:textfield name="id" label="ID"/>
+                        <s:textfield name="idComentario" label="ID Comentario"/>
                         <s:textfield name="puntuacion" label="Puntuación"/>
                         <s:submit value="Actualizar"/>
                     </s:form>

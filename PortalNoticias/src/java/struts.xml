@@ -22,7 +22,7 @@
         </action>
         <!-- Acción para procesar el formulario de Login -->
         <action name="loginUsuarioAction" class="modelo.actions.usuario.usuarioLoginAction">
-            <result name="success">/debug/loginTest.jsp</result>
+            <result name="success">/perfilUsuario.jsp</result>
             <result name="error">/loginUsuario.jsp</result>
         </action>
     </package>
@@ -165,6 +165,16 @@
                 <param name="actionName">getListaComentarios</param>
             </result>
         </action>
+        <action name="updateComentarioUser" class="modelo.actions.comentario.actualizarComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionPerfilUsuario</param>
+            </result>
+        </action>
+        <action name="deleteComentarioUser" class="modelo.actions.comentario.borrarComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionPerfilUsuario</param>
+            </result>
+        </action>
     </package>
     <package name="etiquetaSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la lista de Etiquetas -->
@@ -277,6 +287,14 @@
                 <param name="actionName">getListaUsuarios</param>
             </result>
         </action>
+        <action name="gestionPerfilUsuario" class="modelo.actions.usuario.gestionPerfilUsuarioAction">
+            <result name="success">/gestionPerfilUsuario.jsp</result>
+        </action>
+        <action name="updatePerfilUsuario" class="modelo.actions.usuario.actualizarUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionPerfilUsuario</param>
+            </result>
+        </action>
     </package>
     <package name="valoracionSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la lista de Valoraciones -->
@@ -310,6 +328,21 @@
         <action name="updateValoracion" class="modelo.actions.valoracion.actualizarValoracionAction">
             <result type="redirectAction">
                 <param name="actionName">getListaValoraciones</param>
+            </result>
+        </action>
+        <action name="updateValoracionUser" class="modelo.actions.valoracion.actualizarValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionPerfilUsuario</param>
+            </result>
+        </action>
+        <action name="deleteValoracionUser" class="modelo.actions.valoracion.borrarValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionPerfilUsuario</param>
+            </result>
+        </action>
+        <action name="addValoracionUser" class="modelo.actions.valoracion.crearValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionPerfilUsuario</param>
             </result>
         </action>
     </package>

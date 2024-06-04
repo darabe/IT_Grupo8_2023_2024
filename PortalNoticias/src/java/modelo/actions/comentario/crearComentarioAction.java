@@ -5,13 +5,17 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import javax.servlet.http.HttpSession;
 import modelo.Comentario;
+import modelo.Noticia;
 import modelo.dao.ComentarioDAO;
 import modelo.dao.NoticiaDAO;
 import modelo.dao.UsuarioDAO;
+import org.apache.struts2.ServletActionContext;
 
 public class crearComentarioAction extends ActionSupport {
 
+    private HttpSession sesion;
     private String contenido;
     private Comentario comentario;
 
@@ -36,13 +40,27 @@ public class crearComentarioAction extends ActionSupport {
         this.comentario = comentario;
     }
 
+    public HttpSession getSesion() {
+        return sesion;
+    }
+
+    public void setSesion(HttpSession sesion) {
+        this.sesion = sesion;
+    }
+    
+    
+
     @Override
     public void validate() {
         // 
     }
+    
+    
 
     @Override
     public String execute() throws Exception {
+        this.sesion = ServletActionContext.getRequest().getSession(false);
+        int idUser=(int)this.sesion.getAttribute("idUsuario");
         // Obtener la fecha actual con el formato deseado
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = formato.format(new Date());
@@ -52,7 +70,9 @@ public class crearComentarioAction extends ActionSupport {
         comentario.setFechaCreacion(fechaRegistro);
         // ARREGLAR
         comentario.setNoticia(new NoticiaDAO().obtenerNoticia(1));
-        comentario.setUsuario(new UsuarioDAO().obtenerUsuario(1));
+        UsuarioDAO udao=new UsuarioDAO();
+        
+        comentario.setUsuario(udao.obtenerUsuario(idUser));
         comentario.setValoracions(new HashSet(0));
         // Registrar un nuevo Comentario
         ComentarioDAO dao = new ComentarioDAO();

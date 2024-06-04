@@ -30,6 +30,26 @@ public class ValoracionDAO {
         transaccion.commit();
         return valoracion;
     }
+    
+    public List<Valoracion> obtenerValoracionesUsuario(int id_usuario) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("FROM Valoracion WHERE id_usuario = '"+id_usuario+"'");
+        List<Valoracion> comentarios = new ArrayList<>();
+        comentarios = (ArrayList<Valoracion>) consulta.list();
+        transaccion.commit();
+        return comentarios;
+    }
+    
+    public List<Valoracion> obtenerValoracionesComentario(int id_comentario) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("FROM Valoracion WHERE id_comentario = '"+id_comentario+"'");
+        List<Valoracion> comentarios = new ArrayList<>();
+        comentarios = (ArrayList<Valoracion>) consulta.list();
+        transaccion.commit();
+        return comentarios;
+    }
 
     public void registrarValoracion(Valoracion valoracion) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();

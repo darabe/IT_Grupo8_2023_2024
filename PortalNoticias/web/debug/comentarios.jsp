@@ -35,6 +35,7 @@
                                 <th>ID</th>
                                 <th>Contenido</th>
                                 <th>Registro</th>
+                                <th>Usuario</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                     <td><s:property value="idComentario"/></td>
                                     <td><s:property value="contenido"/></td>
                                     <td><s:property value="fechaCreacion"/></td>
+                                    <td><s:property value="usuario.idUsuario"/></td>
                                     <td>
                                         <!-- Botón para borrar un Comentario -->
                                         <s:form action="deleteComentario" cssClass="delete-form">

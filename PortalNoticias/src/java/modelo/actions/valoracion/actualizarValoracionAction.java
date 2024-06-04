@@ -5,16 +5,21 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.servlet.http.HttpSession;
+import modelo.Comentario;
 import modelo.Valoracion;
 import modelo.dao.ComentarioDAO;
 import modelo.dao.UsuarioDAO;
 import modelo.dao.ValoracionDAO;
+import org.apache.struts2.ServletActionContext;
 
 public class actualizarValoracionAction extends ActionSupport {
 
+    private HttpSession sesion;
     private String id;
     private String puntuacion;
     private Valoracion valoracion;
+    private String idComentario;
 
     public actualizarValoracionAction() {
         valoracion = new Valoracion();
@@ -45,6 +50,22 @@ public class actualizarValoracionAction extends ActionSupport {
         this.valoracion = valoracion;
     }
 
+    public HttpSession getSesion() {
+        return sesion;
+    }
+
+    public void setSesion(HttpSession sesion) {
+        this.sesion = sesion;
+    }
+
+    public String getIdComentario() {
+        return idComentario;
+    }
+
+    public void setIdComentario(String idComentario) {
+        this.idComentario = idComentario;
+    }
+
     @Override
     public void validate() {
         // 
@@ -52,6 +73,9 @@ public class actualizarValoracionAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        
+        this.sesion = ServletActionContext.getRequest().getSession(false);
+        int idUser=(int)this.sesion.getAttribute("idUsuario");
         ValoracionDAO dao = new ValoracionDAO();
         valoracion = dao.obtenerValoracion(Integer.parseInt(id));
         if (valoracion == null) {
@@ -66,8 +90,11 @@ public class actualizarValoracionAction extends ActionSupport {
         valoracion.setPuntuacion(Integer.parseInt(puntuacion));
         valoracion.setFechaCreacion(fechaActualizada);
         // ARREGLAR
-        valoracion.setComentario(new ComentarioDAO().obtenerComentario(1));
-        valoracion.setUsuario(new UsuarioDAO().obtenerUsuario(1));
+        Comentario comentario=new ComentarioDAO().obtenerComentario(Integer.parseInt(this.idComentario));
+        valoracion.setComentario(comentario);
+        
+        UsuarioDAO udao=new UsuarioDAO();
+        valoracion.setUsuario(udao.obtenerUsuario(idUser));
         // Actualizar un Comentario existente
         dao.actualizarValoracion(valoracion);
         return SUCCESS;

@@ -17,3 +17,5 @@
 /* Estilos específicos de cada página */
 @import url("pages/index.css");
 @import url("pages/loginUsuario.css");
+@import url("pages/gestionPerfilUsuario.css");
+@import url("pages/perfilUsuario.css");
