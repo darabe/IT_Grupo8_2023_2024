@@ -3,16 +3,10 @@
     <package name="default" namespace="/" extends="struts-default">
         <!-- Acción anónima para mostrar la página de inicio -->
         <action name="">
-            <result type="chain">
-                <param name="actionName">getIndex</param>
-                <param name="namespace">/</param>
-            </result>
+            <result type="redirectAction">cargaInicial</result>
         </action>
-    </package>
-    <package name="mainSection" namespace="/" extends="struts-default">
-        <action name="getIndex" class="modelo.actions.noticia.obtenerNoticiaAction">
-            <result name="success">/index.jsp</result>
-            <result name="error">/index.jsp</result>
+        <action name="cargaInicial" class="modelo.actions.cargaInicialAction">
+            <result>/index.jsp</result>
         </action>
     </package>
     <package name="loginSection" namespace="/" extends="struts-default">
@@ -22,7 +16,7 @@
         </action>
         <!-- Acción para procesar el formulario de Login -->
         <action name="loginUsuarioAction" class="modelo.actions.usuario.usuarioLoginAction">
-            <result name="success">/perfilUsuario.jsp</result>
+            <result name="success">/loginUsuarioPanel.jsp</result>
             <result name="error">/loginUsuario.jsp</result>
         </action>
     </package>
@@ -167,12 +161,12 @@
         </action>
         <action name="updateComentarioUser" class="modelo.actions.comentario.actualizarComentarioAction">
             <result type="redirectAction">
-                <param name="actionName">gestionPerfilUsuario</param>
+                <param name="actionName">gestionUsuario</param>
             </result>
         </action>
         <action name="deleteComentarioUser" class="modelo.actions.comentario.borrarComentarioAction">
             <result type="redirectAction">
-                <param name="actionName">gestionPerfilUsuario</param>
+                <param name="actionName">gestionUsuario</param>
             </result>
         </action>
     </package>
@@ -247,10 +241,9 @@
             </result>
             <result name="input">/debug/noticias.jsp</result>
         </action>
-        <action name="categoriaNoticia" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticiaPorCategoria">
-            <result name="success">/noticias.jsp</result>
-            <result name="input">/noticias.jsp</result>
-            <result name="error" type="redirectAction">getIndex</result>
+        <!-- Acceder al contenido de una noticia concreta -->
+        <action name="paginaNoticia" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticiaExtendido">
+            <result>/noticia.jsp</result>
         </action>
     </package>
     <package name="usuarioSection" namespace="/" extends="struts-default">
@@ -287,12 +280,16 @@
                 <param name="actionName">getListaUsuarios</param>
             </result>
         </action>
-        <action name="gestionPerfilUsuario" class="modelo.actions.usuario.gestionPerfilUsuarioAction">
-            <result name="success">/gestionPerfilUsuario.jsp</result>
+        <!-- Acciones específicas -->
+        <action name="gestionAdmin" class="modelo.actions.usuario.gestionPerfilAdminAction">
+            <result name="success">/gestionAdmin.jsp</result>
         </action>
-        <action name="updatePerfilUsuario" class="modelo.actions.usuario.actualizarUsuarioAction">
+        <action name="gestionUsuario" class="modelo.actions.usuario.gestionPerfilUsuarioAction">
+            <result name="success">/gestionUsuario.jsp</result>
+        </action>
+        <action name="updateUsuario" class="modelo.actions.usuario.actualizarUsuarioAction">
             <result type="redirectAction">
-                <param name="actionName">gestionPerfilUsuario</param>
+                <param name="actionName">gestionUsuario</param>
             </result>
         </action>
     </package>
@@ -332,17 +329,17 @@
         </action>
         <action name="updateValoracionUser" class="modelo.actions.valoracion.actualizarValoracionAction">
             <result type="redirectAction">
-                <param name="actionName">gestionPerfilUsuario</param>
+                <param name="actionName">gestionUsuario</param>
             </result>
         </action>
         <action name="deleteValoracionUser" class="modelo.actions.valoracion.borrarValoracionAction">
             <result type="redirectAction">
-                <param name="actionName">gestionPerfilUsuario</param>
+                <param name="actionName">gestionUsuario</param>
             </result>
         </action>
         <action name="addValoracionUser" class="modelo.actions.valoracion.crearValoracionAction">
             <result type="redirectAction">
-                <param name="actionName">gestionPerfilUsuario</param>
+                <param name="actionName">gestionUsuario</param>
             </result>
         </action>
     </package>

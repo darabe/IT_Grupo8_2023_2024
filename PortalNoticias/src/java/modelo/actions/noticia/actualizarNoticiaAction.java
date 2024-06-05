@@ -67,19 +67,19 @@ public class actualizarNoticiaAction extends ActionSupport {
 
     @Override
     public void validate() {
-        String expresion="\"^[0-9]+$\"";
-        String fId=getId();
-         if(getAutor().equals("") || getContenido().equals("") || getTitulo()=="" || getId()==""){
-            addFieldError("autor","se requiere autor");
+        String expresion = "\"^[0-9]+$\"";
+        String fId = getId();
+        if (getAutor().equals("") || getContenido().equals("") || getTitulo() == "" || getId() == "") {
+            addFieldError("autor", "se requiere autor");
             addFieldError("contenido", "Se requiere contenido");
             addFieldError("titulo", "Se requiere titulo");
             addFieldError("id", "Se requiere id");
-        } 
-         
-          Pattern pattern=Pattern.compile(expresion);
-        Matcher mat= pattern.matcher(fId);
-        
-        if(!mat.matches()){
+        }
+
+        Pattern pattern = Pattern.compile(expresion);
+        Matcher mat = pattern.matcher(fId);
+
+        if (!mat.matches()) {
             addFieldError("id", "El id solo puede ser numerico positivo");
         }
     }

@@ -111,9 +111,9 @@ COMMIT;
 
 INSERT INTO `categoria` (`nombre`, `descripcion`) VALUES
 ('Actualidad', 'Noticias variadas sobre eventos actuales y relevantes.'),
-('Política', 'Noticias relacionadas con el gobierno, legislación, partidos políticos y elecciones.'),
+('Politica', 'Noticias relacionadas con el gobierno, legislación, partidos políticos y elecciones.'),
 ('Deportes', 'Cobertura de eventos deportivos, resultados de partidos, entrevistas con atletas y análisis deportivos.'),
-('Tecnología', 'Últimas novedades en el mundo de la tecnología, gadgets, innovaciones y avances científicos.');
+('Tecnologia', 'Últimas novedades en el mundo de la tecnología, gadgets, innovaciones y avances científicos.');
 
 INSERT INTO `usuario` (`nombre`, `correo`, `contrasenya`, `rol`, `fecha_registro`) VALUES
 ('admin', 'admin@example.com', 'admin123', 'AD', '2024-05-01'),

@@ -21,21 +21,7 @@
         </header>
         <main>
             <div class="content">
-                <section class="login-form">
-                    <h2>Inicio de sesión</h2>
-                    <s:if test="hasActionErrors()">
-                        <div class="error-messages">
-                            <s:actionerror/>
-                        </div>
-                    </s:if>
-                    <s:form action="loginUsuarioAction" method="post">
-                        <label for="correo">Correo electrónico:</label>
-                        <input type="text" id="correo" name="correo" required>
-                        <label for="contrasenya">Contraseña:</label>
-                        <input type="password" id="contrasenya" name="contrasenya" required>
-                        <input type="submit" value="Iniciar sesión">
-                    </s:form>
-                </section>
+                <h2>Panel de administración</h2>
             </div>
         </main>
         <footer>

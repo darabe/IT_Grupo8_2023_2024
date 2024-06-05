@@ -60,12 +60,11 @@ public class crearValoracionAction extends ActionSupport {
     public void setSesion(HttpSession sesion) {
         this.sesion = sesion;
     }
-    
 
     @Override
     public String execute() throws Exception {
         this.sesion = ServletActionContext.getRequest().getSession(false);
-        int idUser=(int)this.sesion.getAttribute("idUsuario");
+        int idUser = (int) this.sesion.getAttribute("idUsuario");
         // Obtener la fecha actual con el formato deseado
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = formato.format(new Date());
@@ -74,10 +73,10 @@ public class crearValoracionAction extends ActionSupport {
         valoracion.setPuntuacion(Integer.parseInt(puntuacion));
         valoracion.setFechaCreacion(fechaRegistro);
         // ARREGLAR
-        Comentario comentario=new ComentarioDAO().obtenerComentario(Integer.parseInt(this.idComentario));
+        Comentario comentario = new ComentarioDAO().obtenerComentario(Integer.parseInt(this.idComentario));
         valoracion.setComentario(comentario);
-        
-        UsuarioDAO udao=new UsuarioDAO();
+
+        UsuarioDAO udao = new UsuarioDAO();
         valoracion.setUsuario(udao.obtenerUsuario(idUser));
         // Registrar una nueva Valoración
         ValoracionDAO dao = new ValoracionDAO();

@@ -1,22 +1,28 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Portal de noticias</title>
+        <title>UPO News</title>
         <link rel="stylesheet" type="text/css" href="<s:url value='/css/main.css'/>">
     </head>
     <body>
         <header>
-            <div class="logo">Portal de noticias</div>
+            <div class="logo">
+                <s:url var="paginaPrincipalURL" action="cargaInicial"/>
+                <a href="<s:property value='#paginaPrincipalURL'/>">UPO News</a>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="<s:url value='/index.jsp'/>">Portada</a></li>
-                    <li><a href="<s:url action='categoriaNoticia'><s:param name='categoria'>Actualidad</s:param></s:url>">Actualidad</a></li>
-                    <li><a href="<s:url action='categoriaNoticia'><s:param name='categoria'>Politica</s:param></s:url>">Política</a></li>
-                    <li><a href="<s:url action='categoriaNoticia'><s:param name='categoria'>Deportes</s:param></s:url>">Deportes</a></li>
-                    <li><a href="<s:url action='categoriaNoticia'><s:param name='categoria'>Tecnologia</s:param></s:url>">Tecnología</a></li>
+                    <s:iterator value="categorias" var="categoria">
+                        <li>
+                            <s:url action="cargaInicial" var="categoriaUrl">
+                                <s:param name="categoriaNombre"><s:property value="#categoria.nombre"/></s:param>
+                            </s:url>
+                            <a href="<s:property value="#categoriaUrl"/>"><s:property value="#categoria.nombre"/></a>
+                        </li>
+                    </s:iterator>
                 </ul>
             </nav>
             <section class="login">
@@ -26,28 +32,37 @@
             </section>
         </header>
         <main>
+            <div class="ads-container">
+                <section class="ads">
+                    <aside class="ads">
+                        <s:iterator value="anuncios" var="anuncio">
+                            <div class="ad"><s:property value="#anuncio.contenido"/></div>
+                        </s:iterator>
+                    </aside>
+                </section>
+            </div>
             <div class="content">
                 <section class="news">
-                    <s:iterator value="#session.noticias">
-                        <article class="noticia">
-                            <h4><s:property value="titulo"/></h4>
-                            <h5><s:property value="autor"/></h5>
-                        </article>
-                    </s:iterator>
+                    <s:if test="noticias.isEmpty()">
+                        <div class="no-news-message">
+                            <p>¡No existen noticias en esta categoría!</p>
+                        </div>
+                    </s:if>
+                    <s:else>
+                        <s:iterator value="noticias" var="noticia">
+                            <s:url var="paginaNoticiaURL" action="paginaNoticia">
+                                <s:param name="idFiltrado"><s:property value="#noticia.idNoticia"/></s:param>
+                            </s:url>
+                            <a href="<s:property value='#paginaNoticiaURL'/>" class="noticia-link">
+                                <article class="noticia">
+                                    <h4><s:property value="#noticia.titulo"/></h4>
+                                    <h5><s:property value="#noticia.autor"/></h5>
+                                </article>
+                            </a>
+                        </s:iterator>
+                    </s:else>
                 </section>
-                <aside class="ads">
-                    <h2>Anuncios</h2>
-                    <div class="ad">Espacio para anuncios</div>
-                    <div class="ad">Espacio para anuncios</div>
-                    <div class="ad">Espacio para anuncios</div>
-                </aside>
             </div>
-            <section class="comments">
-                <h2>Comentarios</h2>
-                <s:form action="#">
-                    <s:submit value="Nuevo comentario"/>
-                </s:form>
-            </section>
             <section class="debug">
                 <h2>debug</h2>
                 <section class="extra-buttons">
@@ -79,7 +94,7 @@
             </section>
         </main>
         <footer>
-            <p>&copy; 2024 Portal de noticias. Todos los derechos reservados.</p>
+            <p>&copy; 2024 UPO News. Todos los derechos reservados.</p>
         </footer>
     </body>
 </html>

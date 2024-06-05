@@ -24,6 +24,7 @@ public class usuarioLoginAction extends ActionSupport {
             Usuario resultado = loginUsuario(correo, contrasenya);
             if (resultado != null) {
                 ActionContext ctx = ActionContext.getContext();
+                ctx.getSession().put("rol", resultado.getRol());
                 ctx.getSession().put("usuario", resultado.getNombre());
                 ctx.getSession().put("idUsuario", resultado.getIdUsuario());
                 return SUCCESS;

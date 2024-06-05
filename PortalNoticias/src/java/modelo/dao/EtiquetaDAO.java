@@ -21,6 +21,17 @@ public class EtiquetaDAO {
         return etiquetas;
     }
 
+    public List<Etiqueta> obtenerEtiquetasPorNoticia(int id_noticia) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("SELECT ne.etiqueta FROM NoticiaEtiqueta ne WHERE ne.noticia.id = :id_noticia");
+        consulta.setParameter("id_noticia", id_noticia);
+        List<Etiqueta> etiquetas = new ArrayList<>();
+        etiquetas = (ArrayList<Etiqueta>) consulta.list();
+        transaccion.commit();
+        return etiquetas;
+    }
+
     public Etiqueta obtenerEtiqueta(int id_etiqueta) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.beginTransaction();
@@ -51,5 +62,5 @@ public class EtiquetaDAO {
         sesion.delete(etiqueta);
         transaccion.commit();
     }
-    
+
 }

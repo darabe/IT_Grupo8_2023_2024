@@ -47,20 +47,16 @@ public class crearComentarioAction extends ActionSupport {
     public void setSesion(HttpSession sesion) {
         this.sesion = sesion;
     }
-    
-    
 
     @Override
     public void validate() {
         // 
     }
-    
-    
 
     @Override
     public String execute() throws Exception {
         this.sesion = ServletActionContext.getRequest().getSession(false);
-        int idUser=(int)this.sesion.getAttribute("idUsuario");
+        int idUser = (int) this.sesion.getAttribute("idUsuario");
         // Obtener la fecha actual con el formato deseado
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = formato.format(new Date());
@@ -70,8 +66,8 @@ public class crearComentarioAction extends ActionSupport {
         comentario.setFechaCreacion(fechaRegistro);
         // ARREGLAR
         comentario.setNoticia(new NoticiaDAO().obtenerNoticia(1));
-        UsuarioDAO udao=new UsuarioDAO();
-        
+        UsuarioDAO udao = new UsuarioDAO();
+
         comentario.setUsuario(udao.obtenerUsuario(idUser));
         comentario.setValoracions(new HashSet(0));
         // Registrar un nuevo Comentario

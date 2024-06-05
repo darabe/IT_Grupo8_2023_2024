@@ -16,11 +16,21 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    height: 71px;
 }
 header .logo {
     font-size: 28px;
     font-weight: bold;
     text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+header .logo a {
+    text-decoration: none;
+    color: inherit;
+}
+header .logo a:hover {
+    color: #ccc;
 }
 header nav {
     flex-grow: 1;
@@ -36,13 +46,14 @@ nav ul li {
     margin: 0 15px;
 }
 nav ul li a {
-    color: white;
     text-decoration: none;
+    color: white;
     font-size: 18px;
     transition: color 0.3s;
 }
 nav ul li a:hover {
-    color: #4db6ac;
+    text-decoration: none;
+    color: #ccc;
 }
 section.login {
     margin: 0;
@@ -63,7 +74,7 @@ section.login form input[type="submit"] {
     transition: background-color 0.3s;
 }
 section.login form input[type="submit"]:hover {
-    background-color: #4db6ac; 
+    background-color: #4db6ac;
 }
 main {
     flex: 1;
@@ -88,14 +99,30 @@ h1 {
 }
 section.news {
     flex: 2;
-    margin-right: 20px;
+    margin: 0 20px 0 20px;
+}
+.no-news-message {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.no-news-message p {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: center;
 }
 .noticia {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    margin: 16px 0;
+    margin-bottom: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
 }
@@ -107,27 +134,39 @@ section.news {
     font-size: 1.2em;
     font-weight: bold;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 .noticia h5 {
     font-size: 1em;
     font-weight: bold;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
-aside.ads {
+.noticia-link {
+    text-decoration: none;
+    color: inherit;
+}
+.noticia-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.ads-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+.ads {
     flex: 1;
     background-color: #4db6ac;
     padding: 10px;
     border-radius: 10px;
     color: white;
+    margin: 0 20px 0 20px;
 }
-aside.ads h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    text-align: center;
+.ads:last-of-type {
+    margin-bottom: 0;
 }
-aside.ads .ad {
+.ads .ad {
     background-color: #00796b;
     padding: 20px;
     margin-bottom: 10px;
@@ -135,7 +174,10 @@ aside.ads .ad {
     border-radius: 10px;
     transition: background-color 0.3s;
 }
-aside.ads .ad:hover {
+.ads .ad:last-child {
+    margin-bottom: 0;
+}
+.ads .ad:hover {
     background-color: #004d40;
 }
 article {
