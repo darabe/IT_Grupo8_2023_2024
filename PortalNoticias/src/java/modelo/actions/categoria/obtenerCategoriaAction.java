@@ -89,4 +89,5 @@ public class obtenerCategoriaAction extends ActionSupport {
         sesion.setAttribute("categorias", categorias);
         return SUCCESS;
     }
+
 }

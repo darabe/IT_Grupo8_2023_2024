@@ -59,15 +59,13 @@ public class crearNoticiaAction extends ActionSupport {
 
     @Override
     public void validate() {
-        
-      
-        if(getAutor().equals("") || getContenido().equals("") || getTitulo()==""){
-            addFieldError("autor","se requiere autor");
+        if (getAutor().equals("") || getContenido().equals("") || "".equals(getTitulo())) {
+            addFieldError("autor", "Se requiere autor");
             addFieldError("contenido", "Se requiere contenido");
             addFieldError("titulo", "Se requiere titulo");
-        }             
+        }
     }
-    
+
     @Override
     public String execute() throws Exception {
         // Obtener la fecha actual con el formato deseado

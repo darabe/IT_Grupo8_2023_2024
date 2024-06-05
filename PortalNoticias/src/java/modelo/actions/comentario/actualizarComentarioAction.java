@@ -63,7 +63,7 @@ public class actualizarComentarioAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         this.sesion = ServletActionContext.getRequest().getSession(false);
-        int idUser=(int)this.sesion.getAttribute("idUsuario");
+        int idUser = (int) this.sesion.getAttribute("idUsuario");
         ComentarioDAO dao = new ComentarioDAO();
         comentario = dao.obtenerComentario(Integer.parseInt(id));
         if (comentario == null) {
@@ -77,7 +77,7 @@ public class actualizarComentarioAction extends ActionSupport {
         // Cargar los nuevos atributos del Comentario
         comentario.setContenido(contenido);
         comentario.setFechaCreacion(fechaActualizada);
-        UsuarioDAO udao=new UsuarioDAO();
+        UsuarioDAO udao = new UsuarioDAO();
         comentario.setUsuario(udao.obtenerUsuario(idUser));
         comentario.setValoracions(new HashSet(0));
         // Actualizar un Comentario existente

@@ -30,11 +30,21 @@ public class ComentarioDAO {
         transaccion.commit();
         return comentario;
     }
-    
+
     public List<Comentario> obtenerComentariosUsuario(int id_usuario) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.beginTransaction();
-        Query consulta = sesion.createQuery("FROM Comentario WHERE id_usuario = '"+id_usuario+"'");
+        Query consulta = sesion.createQuery("FROM Comentario WHERE id_usuario = '" + id_usuario + "'");
+        List<Comentario> comentarios = new ArrayList<>();
+        comentarios = (ArrayList<Comentario>) consulta.list();
+        transaccion.commit();
+        return comentarios;
+    }
+
+    public List<Comentario> obtenerComentariosNoticia(int id_noticia) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("FROM Comentario WHERE id_noticia = '" + id_noticia + "'");
         List<Comentario> comentarios = new ArrayList<>();
         comentarios = (ArrayList<Comentario>) consulta.list();
         transaccion.commit();

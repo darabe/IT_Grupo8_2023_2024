@@ -1,30 +1,18 @@
-<%-- 
-    Document   : gestionPerfilUsuario
-    Created on : 03-jun-2024, 16:47:35
-    Author     : Victor
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Portal de noticias</title>
+        <title>UPO News</title>
         <link rel="stylesheet" type="text/css" href="<s:url value='/css/main.css'/>">
     </head>
     <body>
         <header>
-            <div class="logo">Portal de noticias</div>
-            <nav>
-                <ul>
-                    <li><a href="<s:url value='/index.jsp'/>">Portada</a></li>
-                    <li><a href="#">Actualidad</a></li>
-                    <li><a href="#">Política</a></li>
-                    <li><a href="#">Deportes</a></li>
-                    <li><a href="#">Tecnología</a></li>
-                </ul>
-            </nav>
+            <div class="logo">
+                <s:url var="paginaPrincipalURL" action="cargaInicial"/>
+                <a href="<s:property value='#paginaPrincipalURL'/>">UPO News</a>
+            </div>
             <section class="login">
                 <s:form action="loginUsuario">
                     <s:submit value="Login"/>
@@ -70,7 +58,6 @@
                         <s:submit value="Actualizar"/>
                     </s:form>
                 </section>
-
                 <section class="valoraciones">
                     <h1>Valoraciones</h1>
                     <table>
@@ -116,10 +103,9 @@
                         <s:submit value="Actualizar"/>
                     </s:form>
                 </section>
-
                 <section class="infoUser">
                     <h1>Perfil de Usuario</h1>
-                    <s:form action="updatePerfilUsuario">
+                    <s:form action="updateUsuario">
                         <s:hidden name="id" value="%{usuario.idUsuario}"/>
                         <table>
                             <thead>
@@ -130,25 +116,15 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <s:textfield name="nombre" value="%{usuario.nombre}" label="Nombre"/>
-                                    </td>
-                                    <td>
-                                        <s:textfield name="correo" value="%{usuario.correo}" label="Correo"/>
-                                    </td>
-                                    <td>
-                                        <s:textfield name="rol" value="%{usuario.rol}" label="Rol" readonly="true" disabled="true"/>
-                                    </td>
-                                    <td>
-                                        <s:password name="contrasenya" value="%{usuario.contrasenya}" label="Contraseña"/>
-                                    </td>
-                                    <td>
-                                        <s:textfield name="fechaRegistro" value="%{usuario.fechaRegistro}" label="Fecha de Registro" readonly="true" disabled="true"/>
-                                    </td>
+                                    <td><s:textfield name="nombre" value="%{usuario.nombre}" label="Nombre"/></td>
+                                    <td><s:textfield name="correo" value="%{usuario.correo}" label="Correo"/></td>
+                                    <td><s:textfield name="rol" value="%{usuario.rol}" label="Rol" readonly="true" disabled="true"/></td>
+                                    <td><s:password name="contrasenya" value="%{usuario.contrasenya}" label="Contraseña"/></td>
+                                    <td><s:textfield name="fechaRegistro" value="%{usuario.fechaRegistro}" label="Fecha de Registro" readonly="true" disabled="true"/></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <s:submit value="Actualizar Perfil"/>
+                        <s:submit value="Actualizar"/>
                     </s:form>
                 </section>
             </div>

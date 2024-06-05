@@ -73,9 +73,8 @@ public class actualizarValoracionAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        
         this.sesion = ServletActionContext.getRequest().getSession(false);
-        int idUser=(int)this.sesion.getAttribute("idUsuario");
+        int idUser = (int) this.sesion.getAttribute("idUsuario");
         ValoracionDAO dao = new ValoracionDAO();
         valoracion = dao.obtenerValoracion(Integer.parseInt(id));
         if (valoracion == null) {
@@ -90,10 +89,9 @@ public class actualizarValoracionAction extends ActionSupport {
         valoracion.setPuntuacion(Integer.parseInt(puntuacion));
         valoracion.setFechaCreacion(fechaActualizada);
         // ARREGLAR
-        Comentario comentario=new ComentarioDAO().obtenerComentario(Integer.parseInt(this.idComentario));
+        Comentario comentario = new ComentarioDAO().obtenerComentario(Integer.parseInt(this.idComentario));
         valoracion.setComentario(comentario);
-        
-        UsuarioDAO udao=new UsuarioDAO();
+        UsuarioDAO udao = new UsuarioDAO();
         valoracion.setUsuario(udao.obtenerUsuario(idUser));
         // Actualizar un Comentario existente
         dao.actualizarValoracion(valoracion);

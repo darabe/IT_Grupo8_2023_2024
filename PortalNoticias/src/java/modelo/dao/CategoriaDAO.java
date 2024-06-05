@@ -30,7 +30,7 @@ public class CategoriaDAO {
         transaccion.commit();
         return categoria;
     }
-    
+
     public Categoria obtenerCategoriaPorNombre(String nombre) {
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.beginTransaction();

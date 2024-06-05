@@ -37,9 +37,9 @@ public class borrarComentarioAction extends ActionSupport {
     public String execute() throws Exception {
         ComentarioDAO dao = new ComentarioDAO();
         comentario = dao.obtenerComentario(Integer.parseInt(this.id));
-        ValoracionDAO vdao=new ValoracionDAO();
-        List<Valoracion> listValoraciones=vdao.obtenerValoracionesComentario(Integer.parseInt(this.id));
-        for(int i=0;i<listValoraciones.size();i++){
+        ValoracionDAO vdao = new ValoracionDAO();
+        List<Valoracion> listValoraciones = vdao.obtenerValoracionesComentario(Integer.parseInt(this.id));
+        for (int i = 0; i < listValoraciones.size(); i++) {
             vdao.borrarValoracion(listValoraciones.get(i));
         }
         dao.borrarComentario(comentario);

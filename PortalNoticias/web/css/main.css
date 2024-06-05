@@ -15,7 +15,9 @@
 @import url("debug/valoraciones.css");
 
 /* Estilos específicos de cada página */
+@import url("pages/gestionAdmin.css");
+@import url("pages/gestionUsuario.css");
 @import url("pages/index.css");
 @import url("pages/loginUsuario.css");
-@import url("pages/gestionPerfilUsuario.css");
-@import url("pages/perfilUsuario.css");
+@import url("pages/loginUsuarioPanel.css");
+@import url("pages/noticia.css");
