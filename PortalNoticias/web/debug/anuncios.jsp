@@ -79,7 +79,7 @@
             </div>
         </main>
         <footer>
-            <p>&copy; 2024 Portal de noticias. Todos los derechos reservados.</p>
+            <p>&copy; 2024 UPO News. Todos los derechos reservados.</p>
         </footer>
     </body>
 </html>

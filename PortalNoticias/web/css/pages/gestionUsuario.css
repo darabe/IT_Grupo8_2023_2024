@@ -1,55 +1,25 @@
-section.anunciantes,
-section.valoraciones,
-section.infoUser {
-    width: 30%;
+.user-page .panel {
+    margin: 0 20px;
 }
-section.anunciantes,
-section.valoraciones {
-    margin-right: 20px;
-}
-section.anunciantes h1,
-section.valoraciones h1,
-section.infoUser h1 {
+.user-page .panel-title {
     font-size: 24px;
+    font-weight: bold;
     color: #00796b;
-    margin-bottom: 10px;
-    text-align: center;
+    margin-bottom: 40px;
 }
-section.anunciantes table,
-section.valoraciones table,
-section.infoUser table {
-    width: 100%;
-    border-collapse: collapse;
+.user-page .toggleButton:hover {
+    background-color: #4db6ac;
+}
+.user-page .container-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.user-page form {
     margin-bottom: 20px;
 }
-section.anunciantes table th,
-section.anunciantes table td,
-section.valoraciones table th,
-section.valoraciones table td,
-section.infoUser table th,
-section.infoUser table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-section.anunciantes table th,
-section.valoraciones table th,
-section.infoUser table th {
-    background-color: #00796b;
-    color: #fff;
-}
-section.anunciantes form,
-section.valoraciones form,
-section.infoUser form {
-    margin-bottom: 20px;
-}
-section.anunciantes form input[type="text"],
-section.anunciantes form input[type="submit"],
-section.valoraciones form input[type="text"],
-section.valoraciones form input[type="submit"],
-section.infoUser form input[type="text"],
-section.infoUser form input[type="password"],
-section.infoUser form input[type="submit"] {
+.user-page input[type="text"],
+.user-page input[type="password"],
+.user-page input[type="submit"] {
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #4db6ac;
@@ -57,20 +27,16 @@ section.infoUser form input[type="submit"] {
     font-size: 16px;
     width: calc(100% - 22px);
 }
-section.anunciantes form input[type="submit"],
-section.valoraciones form input[type="submit"],
-section.infoUser form input[type="submit"] {
+.user-page input[type="submit"] {
     background-color: #4db6ac;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-section.anunciantes form input[type="submit"]:hover,
-section.valoraciones form input[type="submit"]:hover,
-section.infoUser form input[type="submit"]:hover {
+.user-page input[type="submit"]:hover {
     background-color: #00796b;
 }
-.delete-button {
+.user-page .delete-button {
     background-color: #ff4444;
     color: white;
     border: none;
@@ -79,17 +45,53 @@ section.infoUser form input[type="submit"]:hover {
     border-radius: 5px;
     transition: background-color 0.3s;
 }
-.delete-button:hover {
+.user-page .delete-button:hover {
     background-color: #cc0000;
 }
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-section.anunciantes,
-section.valoraciones,
-section.infoUser {
-    width: 100%;
+.container-infoUser {
     margin-bottom: 20px;
+}
+.container-infoUser .toggleButton {
+    background-color: #00796b;
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.container-infoUser .toggleButton:hover {
+    background-color: #4db6ac;
+}
+.container-infoUser .container-content {
+    max-height: 0;
+    margin: 20px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    max-width: 1000px;
+}
+.container-infoUser .container-content.show {
+    max-height: 1000px;
+}
+.container-infoUser table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.container-infoUser table th,
+.container-infoUser table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.container-infoUser table th {
+    background-color: #00796b;
+    color: #fff;
+}
+.container-infoUser input[type="submit"] {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
 }
