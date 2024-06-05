@@ -281,9 +281,6 @@
             </result>
         </action>
         <!-- Acciones específicas -->
-        <action name="gestionAdmin" class="modelo.actions.usuario.gestionPerfilAdminAction">
-            <result name="success">/gestionAdmin.jsp</result>
-        </action>
         <action name="gestionUsuario" class="modelo.actions.usuario.gestionPerfilUsuarioAction">
             <result name="success">/gestionUsuario.jsp</result>
         </action>
@@ -340,6 +337,306 @@
         <action name="addValoracionUser" class="modelo.actions.valoracion.crearValoracionAction">
             <result type="redirectAction">
                 <param name="actionName">gestionUsuario</param>
+            </result>
+        </action>
+    </package>
+    <package name="gestionAdminSection" namespace="/" extends="struts-default">
+        <!-- Acción para mostrar el panel de administrador -->
+        <action name="gestionAdmin" class="modelo.actions.usuario.gestionPerfilAdminAction">
+            <result name="success">/gestionAdmin.jsp</result>
+        </action>
+        <!-- Acción para mostrar la lista de Anunciantes -->
+        <action name="getListaAnunciantesAdmin" class="modelo.actions.anunciante.obtenerAnuncianteAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Anunciantes filtrada -->
+        <action name="getListaAnunciantesFiltradoAdmin" class="modelo.actions.anunciante.obtenerAnuncianteAction" method="obtenerAnuncianteFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar un Anunciante específico -->
+        <action name="getAnuncianteAdmin" class="modelo.actions.anunciante.obtenerAnuncianteAction" method="obtenerAnunciante">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar un Anunciante específico -->
+        <action name="deleteAnuncianteAdmin" class="modelo.actions.anunciante.borrarAnuncianteAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaAnunciantesAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar un Anunciante -->
+        <action name="addAnuncianteAdmin" class="modelo.actions.anunciante.crearAnuncianteAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaAnunciantesAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un Anunciante específico -->
+        <action name="updateAnuncianteAdmin" class="modelo.actions.anunciante.actualizarAnuncianteAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaAnunciantesAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Anuncios -->
+        <action name="getListaAnunciosAdmin" class="modelo.actions.anuncio.obtenerAnuncioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Anuncios filtrada -->
+        <action name="getListaAnunciosFiltradoAdmin" class="modelo.actions.anuncio.obtenerAnuncioAction" method="obtenerAnuncioFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar un Anuncio específico -->
+        <action name="getAnuncioAdmin" class="modelo.actions.anuncio.obtenerAnuncioAction" method="obtenerAnuncio">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar un Anuncio específico -->
+        <action name="deleteAnuncioAdmin" class="modelo.actions.anuncio.borrarAnuncioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaAnunciosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar un Anuncio -->
+        <action name="addAnuncioAdmin" class="modelo.actions.anuncio.crearAnuncioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaAnunciosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un Anuncio específico -->
+        <action name="updateAnuncioAdmin" class="modelo.actions.anuncio.actualizarAnuncioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaAnunciosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Categorías -->
+        <action name="getListaCategoriasAdmin" class="modelo.actions.categoria.obtenerCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Categorías filtrada -->
+        <action name="getListaCategoriasFiltradoAdmin" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoriaFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar una Categoría específica -->
+        <action name="getCategoriaAdmin" class="modelo.actions.categoria.obtenerCategoriaAction" method="obtenerCategoria">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar una Categoría específica -->
+        <action name="deleteCategoriaAdmin" class="modelo.actions.categoria.borrarCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaCategoriasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Categoría -->
+        <action name="addCategoriaAdmin" class="modelo.actions.categoria.crearCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaCategoriasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Categoría específica -->
+        <action name="updateCategoriaAdmin" class="modelo.actions.categoria.actualizarCategoriaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaCategoriasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Comentarios -->
+        <action name="getListaComentariosAdmin" class="modelo.actions.comentario.obtenerComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Comentarios filtrada -->
+        <action name="getListaComentariosFiltradoAdmin" class="modelo.actions.comentario.obtenerComentarioAction" method="obtenerComentarioFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar un Comentario específico -->
+        <action name="getComentarioAdmin" class="modelo.actions.comentario.obtenerComentarioAction" method="obtenerComentario">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar un Comentario específico -->
+        <action name="deleteComentarioAdmin" class="modelo.actions.comentario.borrarComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaComentariosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar un Comentario -->
+        <action name="addComentarioAdmin" class="modelo.actions.comentario.crearComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaComentariosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un Comentario específico -->
+        <action name="updateComentarioAdmin" class="modelo.actions.comentario.actualizarComentarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaComentariosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Etiquetas -->
+        <action name="getListaEtiquetasAdmin" class="modelo.actions.etiqueta.obtenerEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Etiquetas filtrada -->
+        <action name="getListaEtiquetasFiltradoAdmin" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiquetaFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar una Etiqueta específica -->
+        <action name="getEtiquetaAdmin" class="modelo.actions.etiqueta.obtenerEtiquetaAction" method="obtenerEtiqueta">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar una Etiqueta específica -->
+        <action name="deleteEtiquetaAdmin" class="modelo.actions.etiqueta.borrarEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Etiqueta -->
+        <action name="addEtiquetaAdmin" class="modelo.actions.etiqueta.crearEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Etiqueta específica -->
+        <action name="updateEtiquetaAdmin" class="modelo.actions.etiqueta.actualizarEtiquetaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaEtiquetasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Noticias -->
+        <action name="getListaNoticiasAdmin" class="modelo.actions.noticia.obtenerNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Noticias filtrada -->
+        <action name="getListaNoticiasFiltradoAdmin" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticiaFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar una Noticia específica -->
+        <action name="getNoticiaAdmin" class="modelo.actions.noticia.obtenerNoticiaAction" method="obtenerNoticia">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar una Noticia específica -->
+        <action name="deleteNoticiaAdmin" class="modelo.actions.noticia.borrarNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaNoticiasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Noticia -->
+        <action name="addNoticiaAdmin" class="modelo.actions.noticia.crearNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaNoticiasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Noticia específica -->
+        <action name="updateNoticiaAdmin" class="modelo.actions.noticia.actualizarNoticiaAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaNoticiasAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Usuarios -->
+        <action name="getListaUsuariosAdmin" class="modelo.actions.usuario.obtenerUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Usuarios filtrada -->
+        <action name="getListaUsuariosFiltradoAdmin" class="modelo.actions.usuario.obtenerUsuarioAction" method="obtenerUsuarioFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar una Usuario específico -->
+        <action name="getUsuarioAdmin" class="modelo.actions.usuario.obtenerUsuarioAction" method="obtenerUsuario">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar un Usuario específico -->
+        <action name="deleteUsuarioAdmin" class="modelo.actions.usuario.borrarUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaUsuariosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar un Usuario -->
+        <action name="addUsuarioAdmin" class="modelo.actions.usuario.crearUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaUsuariosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un Usuario específico -->
+        <action name="updateUsuarioAdmin" class="modelo.actions.usuario.actualizarUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaUsuariosAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Valoraciones -->
+        <action name="getListaValoracionesAdmin" class="modelo.actions.valoracion.obtenerValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para mostrar la lista de Valoraciones filtrada -->
+        <action name="getListaValoracionesFiltradoAdmin" class="modelo.actions.valoracion.obtenerValoracionAction" method="obtenerValoracionFiltrado">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para seleccionar una Valoración específica -->
+        <action name="getValoracionAdmin" class="modelo.actions.valoracion.obtenerValoracionAction" method="obtenerValoracion">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para borrar una Valoración específica -->
+        <action name="deleteValoracionAdmin" class="modelo.actions.valoracion.borrarValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaValoracionesAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para registrar una Valoración -->
+        <action name="addValoracionAdmin" class="modelo.actions.valoracion.crearValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaValoracionesAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar una Valoración específica -->
+        <action name="updateValoracionAdmin" class="modelo.actions.valoracion.actualizarValoracionAction">
+            <result type="redirectAction">
+                <param name="actionName">getListaValoracionesAdmin</param>
+            </result>
+        </action>
+        <!-- Acción para actualizar un usuario administrador -->
+        <action name="updateUsuarioAdmin" class="modelo.actions.usuario.actualizarUsuarioAction">
+            <result type="redirectAction">
+                <param name="actionName">gestionAdmin</param>
             </result>
         </action>
     </package>

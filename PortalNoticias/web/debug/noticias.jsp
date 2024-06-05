@@ -70,7 +70,7 @@
                     </s:form>
                     <!-- Formulario para actualizar una Noticia existente -->
                     <s:form action="updateNoticia">
-                        <h2>Actualizar anuncio</h2>
+                        <h2>Actualizar noticia</h2>
                         <s:textfield name="id" label="ID"/>
                         <s:textfield name="autor" label="Autor"/>
                         <s:textfield name="titulo" label="Título"/>
@@ -81,7 +81,7 @@
             </div>
         </main>
         <footer>
-            <p>&copy; 2024 Portal de noticias. Todos los derechos reservados.</p>
+            <p>&copy; 2024 UPO News. Todos los derechos reservados.</p>
         </footer>
     </body>
 </html>

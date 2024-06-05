@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.HashSet;
 import javax.servlet.http.HttpSession;
 import modelo.Comentario;
-import modelo.Noticia;
 import modelo.dao.ComentarioDAO;
 import modelo.dao.NoticiaDAO;
 import modelo.dao.UsuarioDAO;
@@ -67,7 +66,6 @@ public class crearComentarioAction extends ActionSupport {
         // ARREGLAR
         comentario.setNoticia(new NoticiaDAO().obtenerNoticia(1));
         UsuarioDAO udao = new UsuarioDAO();
-
         comentario.setUsuario(udao.obtenerUsuario(idUser));
         comentario.setValoracions(new HashSet(0));
         // Registrar un nuevo Comentario
