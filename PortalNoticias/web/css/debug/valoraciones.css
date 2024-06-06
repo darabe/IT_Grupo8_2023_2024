@@ -22,7 +22,8 @@
     width: calc(50% - 10px);
 }
 .valoraciones form input[type="text"],
-.valoraciones form input[type="submit"] {
+.valoraciones form input[type="submit"],
+.valoraciones form select {
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #4db6ac;

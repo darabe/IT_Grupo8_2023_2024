@@ -5,6 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
+import modelo.Anunciante;
 import modelo.Anuncio;
 import modelo.dao.AnuncianteDAO;
 import modelo.dao.AnuncioDAO;
@@ -15,6 +17,8 @@ public class crearAnuncioAction extends ActionSupport {
     private String contenido;
     private String tipo;
     private Anuncio anuncio;
+    
+    private String idAnunciante;
 
     public crearAnuncioAction() {
         anuncio = new Anuncio();
@@ -53,6 +57,16 @@ public class crearAnuncioAction extends ActionSupport {
         this.anuncio = anuncio;
     }
 
+    public String getIdAnunciante() {
+        return idAnunciante;
+    }
+
+    public void setIdAnunciante(String idAnunciante) {
+        this.idAnunciante = idAnunciante;
+    }
+    
+    
+
     @Override
     public void validate() {
         // 
@@ -71,7 +85,7 @@ public class crearAnuncioAction extends ActionSupport {
         anuncio.setFechaCreacion(fechaRegistro);
         // ARREGLAR
         anuncio.setImagen("");
-        anuncio.setAnunciante(new AnuncianteDAO().obtenerAnunciante(1));
+        anuncio.setAnunciante(new AnuncianteDAO().obtenerAnunciante(Integer.parseInt(this.idAnunciante)));
         anuncio.setNoticias(new HashSet(0));
         // Registrar un nuevo Anuncio
         AnuncioDAO dao = new AnuncioDAO();

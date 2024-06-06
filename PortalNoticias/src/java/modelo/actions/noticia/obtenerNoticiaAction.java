@@ -1,5 +1,6 @@
 package modelo.actions.noticia;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
@@ -146,6 +147,10 @@ public class obtenerNoticiaAction extends ActionSupport {
         AnuncioDAO daoA = new AnuncioDAO();
         EtiquetaDAO daoE = new EtiquetaDAO();
         ComentarioDAO daoO = new ComentarioDAO();
+        if (idFiltrado == null) {
+        idFiltrado = ServletActionContext.getRequest().getParameter("idFiltrado");
+        }
+        System.out.println(idFiltrado);
         noticia = daoN.obtenerNoticia(Integer.parseInt(idFiltrado));
         categorias = daoC.obtenerCategorias();
         anuncio = daoA.obtenerAnuncio(noticia.getAnuncio().getIdAnuncio());
@@ -174,7 +179,11 @@ public class obtenerNoticiaAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         NoticiaDAO dao = new NoticiaDAO();
+        CategoriaDAO cdao=new CategoriaDAO();
+        AnuncioDAO adao=new AnuncioDAO();
         noticias = dao.obtenerNoticias();
+        this.categorias=cdao.obtenerCategorias();
+        this.anuncios=adao.obtenerAnuncios();
         if (noticias == null || noticias.isEmpty()) {
             addActionError("¡La lista de noticias está vacía!");
             return ERROR;

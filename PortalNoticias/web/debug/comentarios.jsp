@@ -59,13 +59,14 @@
                     <!-- Formulario para crear un nuevo Comentario -->
                     <s:form action="addComentario">
                         <h2>Registrar comentario</h2>
+                        <s:select name="idFiltrado" label="ID Noticia" list="noticias" listKey="idNoticia" listValue="idNoticia"/>
                         <s:textfield name="contenido" label="Contenido"/>
                         <s:submit value="Registrar"/>
                     </s:form>
                     <!-- Formulario para actualizar un Comentario existente -->
                     <s:form action="updateComentario">
                         <h2>Actualizar comentario</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <s:select name="id" label="ID" list="#session.comentarios" listKey="idComentario" listValue="idComentario"/>
                         <s:textfield name="contenido" label="Contenido"/>
                         <s:submit value="Actualizar"/>
                     </s:form>

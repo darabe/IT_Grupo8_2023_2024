@@ -51,7 +51,7 @@
                             <!-- Formulario para actualizar un Comentario existente -->
                             <s:form action="updateComentarioUser">
                                 <h2>Actualizar comentario</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="listComentarios" listKey="idComentario" listValue="idComentario"/>
                                 <s:textfield name="contenido" label="Contenido"/>
                                 <s:submit value="Actualizar"/>
                             </s:form>
@@ -92,15 +92,15 @@
                             <!-- Formulario para crear una nueva Valoración -->
                             <s:form action="addValoracionUser">
                                 <h2>Registrar valoración</h2>
-                                <s:textfield name="idComentario" label="ID Comentario"/>
+                                <s:select name="idComentario" label="ID Comentario" list="listComentarios" listKey="idComentario" listValue="idComentario"/>
                                 <s:textfield name="puntuacion" label="Puntuación"/>
                                 <s:submit value="Registrar"/>
                             </s:form>
                             <!-- Formulario para actualizar una Valoración existente -->
                             <s:form action="updateValoracionUser">
                                 <h2>Actualizar valoración</h2>
-                                <s:textfield name="id" label="ID"/>
-                                <s:textfield name="idComentario" label="ID Comentario"/>
+                                <s:select name="id" label="ID" list="listValoraciones" listKey="idValoracion" listValue="idValoracion"/>
+                                <s:select name="idComentario" label="ID Comentario" list="listComentarios" listKey="idComentario" listValue="idComentario"/>
                                 <s:textfield name="puntuacion" label="Puntuación"/>
                                 <s:submit value="Actualizar"/>
                             </s:form>
@@ -111,7 +111,7 @@
                     <button class="toggleButton">Datos del perfil</button>
                     <div class="container-content">
                         <section class="infoUser">
-                            <s:form action="updateUsuario" class="infoUser-form">
+                            <s:form action="updateUsuarioUser" class="infoUser-form">
                                 <s:hidden name="id" value="%{usuario.idUsuario}"/>
                                 <table>
                                     <thead>

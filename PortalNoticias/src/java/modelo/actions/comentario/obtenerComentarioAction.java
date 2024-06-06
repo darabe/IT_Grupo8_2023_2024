@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import modelo.Comentario;
+import modelo.Noticia;
 import modelo.dao.ComentarioDAO;
+import modelo.dao.NoticiaDAO;
 import org.apache.struts2.ServletActionContext;
 
 public class obtenerComentarioAction extends ActionSupport {
@@ -14,6 +16,7 @@ public class obtenerComentarioAction extends ActionSupport {
     private String idFiltrado;
     private Comentario comentario;
     private List<Comentario> comentarios;
+    private List<Noticia> noticias;
 
     public obtenerComentarioAction() {
         sesion = ServletActionContext.getRequest().getSession(false);
@@ -78,6 +81,16 @@ public class obtenerComentarioAction extends ActionSupport {
         return SUCCESS;
     }
 
+    public List<Noticia> getNoticias() {
+        return noticias;
+    }
+
+    public void setNoticias(List<Noticia> noticias) {
+        this.noticias = noticias;
+    }
+    
+    
+
     @Override
     public String execute() throws Exception {
         ComentarioDAO dao = new ComentarioDAO();
@@ -86,6 +99,8 @@ public class obtenerComentarioAction extends ActionSupport {
             addActionError("¡La lista de comentarios está vacía!");
             return ERROR;
         }
+        NoticiaDAO ndao=new NoticiaDAO();
+        this.noticias=ndao.obtenerNoticias();
         sesion.setAttribute("comentarios", comentarios);
         return SUCCESS;
     }

@@ -7,11 +7,13 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.servlet.http.HttpSession;
 import modelo.Noticia;
 import modelo.dao.AnuncioDAO;
 import modelo.dao.CategoriaDAO;
 import modelo.dao.NoticiaDAO;
 import modelo.dao.UsuarioDAO;
+import org.apache.struts2.ServletActionContext;
 
 public class crearNoticiaAction extends ActionSupport {
 
@@ -19,6 +21,10 @@ public class crearNoticiaAction extends ActionSupport {
     private String titulo;
     private String contenido;
     private Noticia noticia;
+    
+    private String idCategoria;
+    private HttpSession sesion;
+    private String idAnuncio;
 
     public crearNoticiaAction() {
         noticia = new Noticia();
@@ -57,6 +63,32 @@ public class crearNoticiaAction extends ActionSupport {
         this.noticia = noticia;
     }
 
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(String idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public HttpSession getSesion() {
+        return sesion;
+    }
+
+    public void setSesion(HttpSession sesion) {
+        this.sesion = sesion;
+    }
+
+    public String getIdAnuncio() {
+        return idAnuncio;
+    }
+
+    public void setIdAnuncio(String idAnuncio) {
+        this.idAnuncio = idAnuncio;
+    }
+    
+    
+
     @Override
     public void validate() {
         if (getAutor().equals("") || getContenido().equals("") || "".equals(getTitulo())) {
@@ -68,6 +100,9 @@ public class crearNoticiaAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        
+        this.sesion = ServletActionContext.getRequest().getSession(false);
+        int idUser = (int) this.sesion.getAttribute("idUsuario");
         // Obtener la fecha actual con el formato deseado
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = formato.format(new Date());
@@ -79,9 +114,9 @@ public class crearNoticiaAction extends ActionSupport {
         noticia.setFechaCreacion(fechaRegistro);
         // ARREGLAR
         noticia.setImagen("");
-        noticia.setCategoria(new CategoriaDAO().obtenerCategoria(1));
-        noticia.setUsuario(new UsuarioDAO().obtenerUsuario(1));
-        noticia.setAnuncio(new AnuncioDAO().obtenerAnuncio(1));
+        noticia.setCategoria(new CategoriaDAO().obtenerCategoria(Integer.parseInt(this.idCategoria)));
+        noticia.setUsuario(new UsuarioDAO().obtenerUsuario(idUser));
+        noticia.setAnuncio(new AnuncioDAO().obtenerAnuncio(Integer.parseInt(this.idAnuncio)));
         noticia.setComentarios(new HashSet(0));
         noticia.setNoticiaEtiquetas(new HashSet(0));
         // Registrar una nueva Noticia

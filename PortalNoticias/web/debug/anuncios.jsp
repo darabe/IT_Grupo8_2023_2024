@@ -61,6 +61,7 @@
                     <!-- Formulario para crear un nuevo Anuncio -->
                     <s:form action="addAnuncio">
                         <h2>Registrar anuncio</h2>
+                        <s:select name="idAnunciante" label="ID Anunciantes" list="#session.anunciantes" listKey="idAnunciante" listValue="idAnunciante"/>
                         <s:textfield name="titulo" label="Título"/>
                         <s:textfield name="contenido" label="Contenido"/>
                         <s:textfield name="tipo" label="Tipo"/>
@@ -69,7 +70,7 @@
                     <!-- Formulario para actualizar un Anuncio existente -->
                     <s:form action="updateAnuncio">
                         <h2>Actualizar anuncio</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <s:select name="id" label="ID" list="#session.anuncios" listKey="idAnuncio" listValue="idAnuncio"/>
                         <s:textfield name="titulo" label="Título"/>
                         <s:textfield name="contenido" label="Contenido"/>
                         <s:textfield name="tipo" label="Tipo"/>

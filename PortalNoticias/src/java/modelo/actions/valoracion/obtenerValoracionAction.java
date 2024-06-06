@@ -4,7 +4,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import modelo.Comentario;
 import modelo.Valoracion;
+import modelo.dao.ComentarioDAO;
 import modelo.dao.ValoracionDAO;
 import org.apache.struts2.ServletActionContext;
 
@@ -14,6 +16,8 @@ public class obtenerValoracionAction extends ActionSupport {
     private String idFiltrado;
     private Valoracion valoracion;
     private List<Valoracion> valoraciones;
+    
+    private List<Comentario> listComentarios;
 
     public obtenerValoracionAction() {
         sesion = ServletActionContext.getRequest().getSession(false);
@@ -54,6 +58,16 @@ public class obtenerValoracionAction extends ActionSupport {
         this.valoraciones = valoraciones;
     }
 
+    public List<Comentario> getListComentarios() {
+        return listComentarios;
+    }
+
+    public void setListComentarios(List<Comentario> listComentarios) {
+        this.listComentarios = listComentarios;
+    }
+    
+    
+
     public String obtenerValoracion() {
         ValoracionDAO dao = new ValoracionDAO();
         valoracion = dao.obtenerValoracion(Integer.parseInt(idFiltrado));
@@ -86,6 +100,8 @@ public class obtenerValoracionAction extends ActionSupport {
             addActionError("¡La lista de valoraciones está vacía!");
             return ERROR;
         }
+        ComentarioDAO cdao=new ComentarioDAO();
+        this.listComentarios=cdao.obtenerComentarios();
         sesion.setAttribute("valoraciones", valoraciones);
         return SUCCESS;
     }

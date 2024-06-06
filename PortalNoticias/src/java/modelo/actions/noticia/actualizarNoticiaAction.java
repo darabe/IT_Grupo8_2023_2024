@@ -67,7 +67,7 @@ public class actualizarNoticiaAction extends ActionSupport {
 
     @Override
     public void validate() {
-        String expresion = "\"^[0-9]+$\"";
+        String expresion = "^[1-9]\\d*$";
         String fId = getId();
         if (getAutor().equals("") || getContenido().equals("") || getTitulo() == "" || getId() == "") {
             addFieldError("autor", "se requiere autor");

@@ -69,7 +69,7 @@
                             <!-- Formulario para actualizar un Anunciante existente -->
                             <s:form action="updateAnuncianteAdmin">
                                 <h2>Actualizar anunciante</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="anunciantes" listKey="idAnunciante" listValue="idAnunciante"/>
                                 <s:textfield name="nombre" label="Nombre"/>
                                 <s:textfield name="correo" label="Correo"/>
                                 <s:textfield name="telefono" label="Teléfono"/>
@@ -118,6 +118,7 @@
                             <!-- Formulario para crear un nuevo Anuncio -->
                             <s:form action="addAnuncioAdmin">
                                 <h2>Registrar anuncio</h2>
+                                <s:select name="idAnunciante" label="ID Anunciantes" list="anunciantes" listKey="idAnunciante" listValue="idAnunciante"/>
                                 <s:textfield name="titulo" label="Título"/>
                                 <s:textfield name="contenido" label="Contenido"/>
                                 <s:textfield name="tipo" label="Tipo"/>
@@ -126,7 +127,7 @@
                             <!-- Formulario para actualizar un Anuncio existente -->
                             <s:form action="updateAnuncioAdmin">
                                 <h2>Actualizar anuncio</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="anuncios" listKey="idAnuncio" listValue="idAnuncio"/>
                                 <s:textfield name="titulo" label="Título"/>
                                 <s:textfield name="contenido" label="Contenido"/>
                                 <s:textfield name="tipo" label="Tipo"/>
@@ -176,7 +177,7 @@
                             <!-- Formulario para actualizar una Categoría existente -->
                             <s:form action="updateCategoriaAdmin">
                                 <h2>Actualizar categoría</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="categorias" listKey="idCategoria" listValue="idCategoria"/>
                                 <s:textfield name="nombre" label="Nombre"/>
                                 <s:textfield name="descripcion" label="Descripción"/>
                                 <s:submit value="Actualizar"/>
@@ -220,13 +221,14 @@
                             <!-- Formulario para crear un nuevo Comentario -->
                             <s:form action="addComentarioAdmin">
                                 <h2>Registrar comentario</h2>
+                                <s:select name="idFiltrado" label="ID Noticia" list="noticias" listKey="idNoticia" listValue="idNoticia"/>
                                 <s:textfield name="contenido" label="Contenido"/>
                                 <s:submit value="Registrar"/>
                             </s:form>
                             <!-- Formulario para actualizar un Comentario existente -->
                             <s:form action="updateComentarioAdmin">
                                 <h2>Actualizar comentario</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="comentarios" listKey="idComentario" listValue="idComentario"/>
                                 <s:textfield name="contenido" label="Contenido"/>
                                 <s:submit value="Actualizar"/>
                             </s:form>
@@ -274,7 +276,7 @@
                             <!-- Formulario para actualizar una Etiqueta existente -->
                             <s:form action="updateEtiquetaAdmin">
                                 <h2>Actualizar etiqueta</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="etiquetas" listKey="idEtiqueta" listValue="idEtiqueta"/>
                                 <s:textfield name="nombre" label="Nombre"/>
                                 <s:textfield name="descripcion" label="Descripción"/>
                                 <s:submit value="Actualizar"/>
@@ -322,6 +324,9 @@
                             <!-- Formulario para crear una nuevo Noticia -->
                             <s:form action="addNoticiaAdmin">
                                 <h2>Registrar noticia</h2>
+                                <h2>Registrar noticia</h2>
+                                <s:select name="idCategoria" label="ID Categoria" list="categorias" listKey="idCategoria" listValue="idCategoria"/>
+                                <s:select name="idAnuncio" label="ID Anuncio" list="anuncios" listKey="idAnuncio" listValue="idAnuncio"/>
                                 <s:textfield name="autor" label="Autor"/>
                                 <s:textfield name="titulo" label="Título"/>
                                 <s:textfield name="contenido" label="Contenido"/>
@@ -330,7 +335,7 @@
                             <!-- Formulario para actualizar una Noticia existente -->
                             <s:form action="updateNoticiaAdmin">
                                 <h2>Actualizar noticia</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="noticias" listKey="idNoticia" listValue="idNoticia"/>
                                 <s:textfield name="autor" label="Autor"/>
                                 <s:textfield name="titulo" label="Título"/>
                                 <s:textfield name="contenido" label="Contenido"/>
@@ -388,7 +393,7 @@
                             <!-- Formulario para actualizar un Usuario existente -->
                             <s:form action="updateUsuarioAdmin">
                                 <h2>Actualizar anuncio</h2>
-                                <s:textfield name="id" label="ID"/>
+                                <s:select name="id" label="ID" list="usuarios" listKey="idUsuario" listValue="idUsuario"/>
                                 <s:textfield name="nombre" label="Nombre"/>
                                 <s:textfield name="correo" label="Correo electrónico"/>
                                 <s:textfield name="contrasenya" label="Contraseña" type="password"/>
@@ -430,15 +435,15 @@
                             <!-- Formulario para crear una nueva Valoración -->
                             <s:form action="addValoracionAdmin">
                                 <h2>Registrar valoración</h2>
-                                <s:textfield name="idComentario" label="ID Comentario"/>
+                                <s:select name="idComentario" label="ID Comentario" list="comentarios" listKey="idComentario" listValue="idComentario"/>
                                 <s:textfield name="puntuacion" label="Puntuación"/>
                                 <s:submit value="Registrar"/>
                             </s:form>
                             <!-- Formulario para actualizar una Valoración existente -->
                             <s:form action="updateValoracionAdmin">
                                 <h2>Actualizar valoración</h2>
-                                <s:textfield name="id" label="ID"/>
-                                <s:textfield name="idComentario" label="ID Comentario"/>
+                                <s:select name="id" label="ID" list="valoraciones" listKey="idValoracion" listValue="idValoracion"/>
+                                <s:select name="idComentario" label="ID Comentario" list="comentarios" listKey="idComentario" listValue="idComentario"/>
                                 <s:textfield name="puntuacion" label="Puntuación"/>
                                 <s:submit value="Actualizar"/>
                             </s:form>
