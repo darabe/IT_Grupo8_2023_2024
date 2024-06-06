@@ -4,7 +4,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import modelo.Anunciante;
 import modelo.Anuncio;
+import modelo.dao.AnuncianteDAO;
 import modelo.dao.AnuncioDAO;
 import org.apache.struts2.ServletActionContext;
 
@@ -14,6 +16,8 @@ public class obtenerAnuncioAction extends ActionSupport {
     private String idFiltrado;
     private Anuncio anuncio;
     private List<Anuncio> anuncios;
+    
+    private List<Anunciante> anunciantes;
 
     public obtenerAnuncioAction() {
         sesion = ServletActionContext.getRequest().getSession(false);
@@ -54,6 +58,16 @@ public class obtenerAnuncioAction extends ActionSupport {
         this.anuncios = anuncios;
     }
 
+    public List<Anunciante> getAnunciantes() {
+        return anunciantes;
+    }
+
+    public void setAnunciantes(List<Anunciante> anunciantes) {
+        this.anunciantes = anunciantes;
+    }
+    
+    
+
     public String obtenerAnuncio() {
         AnuncioDAO dao = new AnuncioDAO();
         anuncio = dao.obtenerAnuncio(Integer.parseInt(idFiltrado));
@@ -86,6 +100,9 @@ public class obtenerAnuncioAction extends ActionSupport {
             addActionError("¡La lista de anuncios está vacía!");
             return ERROR;
         }
+        AnuncianteDAO adao=new AnuncianteDAO();
+        this.anunciantes=adao.obtenerAnunciantes();
+        sesion.setAttribute("anunciantes", anunciantes);
         sesion.setAttribute("anuncios", anuncios);
         return SUCCESS;
     }

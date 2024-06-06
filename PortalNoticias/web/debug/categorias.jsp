@@ -64,7 +64,7 @@
                     <!-- Formulario para actualizar una Categoría existente -->
                     <s:form action="updateCategoria">
                         <h2>Actualizar categoría</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <s:select name="id" label="ID" list="#session.categorias" listKey="idCategoria" listValue="idCategoria"/>
                         <s:textfield name="nombre" label="Nombre"/>
                         <s:textfield name="descripcion" label="Descripción"/>
                         <s:submit value="Actualizar"/>

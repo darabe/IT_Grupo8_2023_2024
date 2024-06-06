@@ -20,7 +20,7 @@
                     <p>¡Enhorabuena, ha iniciado sesión como <span><s:property value="#session.usuario"/></span>!</p>
                     <section class="buttons">
                         <s:if test="%{#session.rol == 'US'}">
-                            <s:form action="gestionUsuario">
+                            <s:form action="gestionUsuarioUser">
                                 <s:submit value="Panel de usuario"/>
                             </s:form>
                         </s:if>

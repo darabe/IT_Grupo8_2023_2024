@@ -52,4 +52,14 @@ public class AnuncioDAO {
         transaccion.commit();
     }
 
+    public List<Anuncio> obtenerAnunciosAnunciante(int id_anunciante) {
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.beginTransaction();
+        Query consulta = sesion.createQuery("FROM Anuncio WHERE id_anunciante = '" + id_anunciante + "'");
+        List<Anuncio> anuncios = new ArrayList<>();
+        anuncios = (ArrayList<Anuncio>) consulta.list();
+        transaccion.commit();
+        return anuncios;
+    }
+    
 }

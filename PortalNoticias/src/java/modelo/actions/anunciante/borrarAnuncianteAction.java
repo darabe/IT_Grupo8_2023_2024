@@ -1,8 +1,11 @@
 package modelo.actions.anunciante;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
 import modelo.Anunciante;
+import modelo.Anuncio;
 import modelo.dao.AnuncianteDAO;
+import modelo.dao.AnuncioDAO;
 
 public class borrarAnuncianteAction extends ActionSupport {
 
@@ -34,6 +37,11 @@ public class borrarAnuncianteAction extends ActionSupport {
     public String execute() throws Exception {
         AnuncianteDAO dao = new AnuncianteDAO();
         anunciante = dao.obtenerAnunciante(Integer.parseInt(id));
+        AnuncioDAO adao = new AnuncioDAO();
+        List<Anuncio> listAnuncios = adao.obtenerAnunciosAnunciante(Integer.parseInt(this.id));
+        for (int i = 0; i < listAnuncios.size(); i++) {
+            adao.borrarAnuncio(listAnuncios.get(i));
+        }
         dao.borrarAnunciante(anunciante);
         return SUCCESS;
     }

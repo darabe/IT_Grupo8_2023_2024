@@ -1,6 +1,7 @@
 package modelo.actions.comentario;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,6 +18,8 @@ public class crearComentarioAction extends ActionSupport {
     private HttpSession sesion;
     private String contenido;
     private Comentario comentario;
+    
+    private String idFiltrado;
 
     public crearComentarioAction() {
         comentario = new Comentario();
@@ -47,6 +50,14 @@ public class crearComentarioAction extends ActionSupport {
         this.sesion = sesion;
     }
 
+    public String getIdFiltrado() {
+        return idFiltrado;
+    }
+
+    public void setIdFiltrado(String idFiltrado) {
+        this.idFiltrado = idFiltrado;
+    }
+    
     @Override
     public void validate() {
         // 
@@ -64,13 +75,15 @@ public class crearComentarioAction extends ActionSupport {
         comentario.setContenido(contenido);
         comentario.setFechaCreacion(fechaRegistro);
         // ARREGLAR
-        comentario.setNoticia(new NoticiaDAO().obtenerNoticia(1));
+        comentario.setNoticia(new NoticiaDAO().obtenerNoticia(Integer.parseInt(idFiltrado)));
         UsuarioDAO udao = new UsuarioDAO();
         comentario.setUsuario(udao.obtenerUsuario(idUser));
         comentario.setValoracions(new HashSet(0));
         // Registrar un nuevo Comentario
         ComentarioDAO dao = new ComentarioDAO();
         dao.registrarComentario(comentario);
+        System.out.println(idFiltrado);
+        ActionContext.getContext().put("idFiltrado", idFiltrado);
         return SUCCESS;
     }
 

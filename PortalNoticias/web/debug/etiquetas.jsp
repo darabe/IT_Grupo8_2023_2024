@@ -64,7 +64,7 @@
                     <!-- Formulario para actualizar una Etiqueta existente -->
                     <s:form action="updateEtiqueta">
                         <h2>Actualizar etiqueta</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <s:select name="id" label="ID" list="#session.etiquetas" listKey="idEtiqueta" listValue="idEtiqueta"/>
                         <s:textfield name="nombre" label="Nombre"/>
                         <s:textfield name="descripcion" label="Descripción"/>
                         <s:submit value="Actualizar"/>

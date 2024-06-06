@@ -75,7 +75,7 @@
                     <!-- Formulario para actualizar un Anunciante existente -->
                     <s:form action="updateAnunciante">
                         <h2>Actualizar anunciante</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <s:select name="id" label="ID" list="#session.anunciantes" listKey="idAnunciante" listValue="idAnunciante"/>
                         <s:textfield name="nombre" label="Nombre"/>
                         <s:textfield name="correo" label="Correo"/>
                         <s:textfield name="telefono" label="Teléfono"/>

@@ -63,6 +63,8 @@
                     <!-- Formulario para crear una nuevo Noticia -->
                     <s:form action="addNoticia">
                         <h2>Registrar noticia</h2>
+                        <s:select name="idCategoria" label="ID Categoria" list="categorias" listKey="idCategoria" listValue="idCategoria"/>
+                        <s:select name="idAnuncio" label="ID Anuncio" list="anuncios" listKey="idAnuncio" listValue="idAnuncio"/>
                         <s:textfield name="autor" label="Autor"/>
                         <s:textfield name="titulo" label="Título"/>
                         <s:textfield name="contenido" label="Contenido"/>
@@ -71,7 +73,7 @@
                     <!-- Formulario para actualizar una Noticia existente -->
                     <s:form action="updateNoticia">
                         <h2>Actualizar noticia</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <s:select name="id" label="ID" list="#session.noticias" listKey="idNoticia" listValue="idNoticia"/>
                         <s:textfield name="autor" label="Autor"/>
                         <s:textfield name="titulo" label="Título"/>
                         <s:textfield name="contenido" label="Contenido"/>

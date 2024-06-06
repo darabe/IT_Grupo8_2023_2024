@@ -23,7 +23,8 @@
 }
 .usuarios form input[type="text"],
 .usuarios form input[type="submit"],
-.usuarios form input[type="password"] {
+.usuarios form input[type="password"],
+.usuarios form select {
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #4db6ac;

@@ -26,9 +26,17 @@
                 </ul>
             </nav>
             <section class="login">
-                <s:form action="loginUsuario">
-                    <s:submit value="Login"/>
-                </s:form>
+                <s:if test="%{#session.usuario == null}">
+                    <s:form action="loginUsuario">
+                        <s:submit value="Login"/>
+                    </s:form>
+                </s:if>
+                <s:else>
+                    <a href="loginUsuarioPanel.jsp"><s:property value="#session.usuario"/></a>
+                    <s:form action="logoutUsuarioAction">
+                        <s:submit value="Logout"/>
+                    </s:form>
+                </s:else>
             </section>
         </header>
         <main>
@@ -67,7 +75,9 @@
                     <s:else>
                         <p class="no-comments">No hay comentarios aún. ¡Sé el primero en comentar!</p>
                     </s:else>
-                    <s:form action="#">
+                    <s:form action="addComentarioNoticia">
+                        <s:textarea name="contenido" rows="10" cols="50"/>
+                        <s:hidden name="idFiltrado" value="%{idFiltrado}"/>
                         <s:submit value="Nuevo comentario"/>
                     </s:form>
                 </section>

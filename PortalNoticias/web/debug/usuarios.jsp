@@ -71,8 +71,8 @@
                     </s:form>
                     <!-- Formulario para actualizar un Usuario existente -->
                     <s:form action="updateUsuario">
-                        <h2>Actualizar anuncio</h2>
-                        <s:textfield name="id" label="ID"/>
+                        <h2>Actualizar usuario</h2>
+                        <s:select name="id" label="ID" list="#session.usuarios" listKey="idUsuario" listValue="idUsuario"/>
                         <s:textfield name="nombre" label="Nombre"/>
                         <s:textfield name="correo" label="Correo electrónico"/>
                         <s:textfield name="contrasenya" label="Contraseña" type="password"/>
