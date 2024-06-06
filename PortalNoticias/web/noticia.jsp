@@ -26,9 +26,17 @@
                 </ul>
             </nav>
             <section class="login">
-                <s:form action="loginUsuario">
-                    <s:submit value="Login"/>
-                </s:form>
+                <s:if test="%{#session.usuario == null}">
+                    <s:form action="loginUsuario">
+                        <s:submit value="Login"/>
+                    </s:form>
+                </s:if>
+                <s:else>
+                    <a href="loginUsuarioPanel.jsp"><s:property value="#session.usuario"/></a>
+                    <s:form action="logoutUsuarioAction">
+                        <s:submit value="Logout"/>
+                    </s:form>
+                </s:else>
             </section>
         </header>
         <main>

@@ -19,6 +19,11 @@
             <result name="success">/loginUsuarioPanel.jsp</result>
             <result name="error">/loginUsuario.jsp</result>
         </action>
+        <action name="logoutUsuarioAction" class="modelo.actions.usuario.usuarioLogoutAction">
+            <result type="redirectAction">
+                <param name="actionName">cargaInicial</param>
+            </result>
+        </action>
     </package>
     <package name="anuncianteSection" namespace="/" extends="struts-default">
         <!-- Acción para mostrar la lista de Anunciantes -->
